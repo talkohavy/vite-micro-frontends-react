@@ -1,5 +1,5 @@
 {
   "root": true,
-  "extends": ["plugin:ezlint/recommended"],
+  "extends": ["plugin:ezlint/recommended", "plugin:ezlint/react"],
   "rules": {}
 }

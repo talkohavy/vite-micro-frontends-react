@@ -4,15 +4,19 @@
   "version": "1.0.0",
   "scripts": {
     "build": "pnpm --parallel --filter \"./**\" build",
+    "dev": "pnpm --parallel --filter \"./**\" dev",
     "serve": "pnpm --parallel --filter \"./**\" preview",
     "build:remotes": "pnpm --parallel --filter \"./remote\" build",
     "serve:remotes": "pnpm --parallel --filter \"./remote\" serve",
     "dev:hosts": "pnpm --filter \"./host\" dev",
-    "stop": "kill-port --port 5000,5001"
+    "stop": "kill-port --port 3000,3001"
   },
   "devDependencies": {
     "@biomejs/biome": "1.5.3",
     "@originjs/vite-plugin-federation": "^1.2.3",
-    "kill-port": "^2.0.1"
+    "eslint": "^8.56.0",
+    "eslint-plugin-ezlint": "^1.1.6",
+    "kill-port": "^2.0.1",
+    "prettier": "^3.2.4"
   }
 }
