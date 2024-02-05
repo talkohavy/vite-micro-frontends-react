@@ -4,8 +4,8 @@
   "version": "1.0.0",
   "scripts": {
     "build": "pnpm --parallel --filter \"./**\" build",
-    "dev": "pnpm --parallel --filter \"./**\" dev",
     "serve": "pnpm --parallel --filter \"./**\" preview",
+    "dev": "pnpm run build && pnpm run serve",
     "build:remotes": "pnpm --parallel --filter \"./remote\" build",
     "serve:remotes": "pnpm --parallel --filter \"./remote\" serve",
     "dev:hosts": "pnpm --filter \"./host\" dev",

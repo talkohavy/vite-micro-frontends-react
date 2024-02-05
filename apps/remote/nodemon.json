@@ -3,7 +3,7 @@
   "verbose": true,
   "delay": 300,
   "ignore": [".git", "node_modules", "**/node_modules"],
-  "watch": ["./src/**", "./src/index.html", "./webpack.config.js"],
+  "watch": ["./src/**", "./src/index.html", "./tailwind.config.js", "./vite.config.js"],
   "ignoreRoot": [],
   "ext": "js,jsx,ts,tsx,d.ts",
   "exec": "pnpm run build && pnpm run serve"
