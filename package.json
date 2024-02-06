@@ -16,6 +16,7 @@
     "@originjs/vite-plugin-federation": "^1.2.3",
     "eslint": "^8.56.0",
     "eslint-plugin-ezlint": "^1.1.6",
+    "json5": "^2.2.3",
     "kill-port": "^2.0.1",
     "prettier": "^3.2.4"
   }
