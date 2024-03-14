@@ -11,7 +11,7 @@
     "@biomejs/biome": "1.5.3",
     "@originjs/vite-plugin-federation": "^1.2.3",
     "eslint": "^8.56.0",
-    "eslint-plugin-ezlint": "^1.1.8",
+    "eslint-plugin-ezlint": "^1.2.0",
     "json5": "^2.2.3",
     "kill-port": "^2.0.1",
     "open-terminal-programmatically": "^0.0.5",
