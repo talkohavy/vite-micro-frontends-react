@@ -1,0 +1,35 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "pipeline": {
+    "typecheck": {},
+    // A package's `lint` script has no dependencies and can be run whenever. It also has no filesystem outputs.
+    "lint": {},
+    "lint-biome": {},
+    "format-prettier": {},
+    "format-fix-prettier": {},
+    "format": {
+      "dependsOn": ["lint"]
+      // - should only be rerun when these change:
+      // "inputs": ["src/**/*.tsx", "src/**/*.ts"]
+    },
+    // A package's `build` script depends on that package's dependencies and devDependencies `build` tasks  being completed first (the `^` symbol signifies `upstream`).
+    "build": {
+      "dependsOn": ["^build"],
+      // note: output globs are relative to each package's `package.json` (and not the monorepo root)
+      "outputs": [".next/**", "!.next/cache/**"]
+    },
+    // A package's `test` script depends on that package's own `build` script being completed first.
+    "test": {
+      // "dependsOn": ["build"],
+      // "inputs": ["src/**/*.tsx", "src/**/*.ts", "test/**/*.ts", "test/**/*.tsx"]
+    },
+    // A package's `deploy` script depends on the `build`, `test`, and `lint` scripts of the same package being completed. It also has no filesystem outputs.
+    "deploy": {
+      "dependsOn": ["build", "test", "lint", "format"]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    }
+  }
+}

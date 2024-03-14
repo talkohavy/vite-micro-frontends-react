@@ -4,17 +4,29 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
+    "clean": "pnpm -r clean && rm -rf node_modules",
+    "turbo-lint": "turbo run lint",
+    "turbo-lint-biome": "turbo run lint-biome",
+    "turbo-format": "turbo run format",
+    "turbo-format-prettier": "turbo run format-prettier",
+    "turbo-format-fix-prettier": "turbo run format-fix-prettier",
+    "turbo-typecheck": "turbo run typecheck",
+    "turbo-build": "turbo run build",
+    "turbo-test": "turbo run test",
     "dev": "node toolbox/debug.js",
-    "stop": "kill-port --port 3000,3001"
+    "stop": "kill-port --port 3000,3001",
+    "prepare": "husky"
   },
   "devDependencies": {
     "@biomejs/biome": "1.5.3",
     "@originjs/vite-plugin-federation": "^1.2.3",
     "eslint": "^8.56.0",
     "eslint-plugin-ezlint": "^1.2.0",
+    "husky": "^9.0.11",
     "json5": "^2.2.3",
     "kill-port": "^2.0.1",
     "open-terminal-programmatically": "^0.0.5",
-    "prettier": "^3.2.4"
+    "prettier": "^3.2.4",
+    "turbo": "^1.12.5"
   }
 }
