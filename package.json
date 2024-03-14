@@ -2,13 +2,9 @@
   "name": "root",
   "private": true,
   "version": "1.0.0",
+  "type": "module",
   "scripts": {
-    "build": "pnpm --parallel --filter \"./**\" build",
-    "serve": "pnpm --parallel --filter \"./**\" preview",
-    "dev": "pnpm run build && pnpm run serve",
-    "build:remotes": "pnpm --parallel --filter \"./remote\" build",
-    "serve:remotes": "pnpm --parallel --filter \"./remote\" serve",
-    "dev:hosts": "pnpm --filter \"./host\" dev",
+    "dev": "node toolbox/debug.js",
     "stop": "kill-port --port 3000,3001"
   },
   "devDependencies": {
@@ -18,6 +14,7 @@
     "eslint-plugin-ezlint": "^1.1.6",
     "json5": "^2.2.3",
     "kill-port": "^2.0.1",
+    "open-terminal-programmatically": "^0.0.5",
     "prettier": "^3.2.4"
   }
 }

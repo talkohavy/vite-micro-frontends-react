@@ -4,12 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev-vite": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "serve": "vite preview",
-    "test": "node --test",
-    "dev": "nodemon"
+    "dev": "nodemon",
+    "dev-standalone": "vite",
+    "micro-build": "vite build",
+    "micro-serve": "vite preview"
   },
   "dependencies": {
     "clsx": "^2.1.0",

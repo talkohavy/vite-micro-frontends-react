@@ -6,5 +6,5 @@
   "watch": ["./src/**", "./src/index.html", "./tailwind.config.js", "./vite.config.js"],
   "ignoreRoot": [],
   "ext": "js,jsx,ts,tsx,d.ts",
-  "exec": "pnpm run build && pnpm run serve"
+  "exec": "pnpm run micro-build && pnpm run micro-serve"
 }

@@ -26,6 +26,9 @@ importers:
       kill-port:
         specifier: ^2.0.1
         version: 2.0.1
+      open-terminal-programmatically:
+        specifier: ^0.0.5
+        version: 0.0.5
       prettier:
         specifier: ^3.2.4
         version: 3.2.4
@@ -2441,6 +2444,10 @@ packages:
     resolution: {integrity: sha512-lNaJgI+2Q5URQBkccEKHTQOPaXdUxnZZElQTZY0MFUAuaEqe1E+Nyvgdz/aIyNi6Z9MzO5dv1H8n58/GELp3+w==}
     dependencies:
       wrappy: 1.0.2
+    dev: true
+
+  /open-terminal-programmatically@0.0.5:
+    resolution: {integrity: sha512-jhiFy4CtyWHnvI+ZNwc/hjiGwH6VH17RAImIGdn5FuV4anU4c0FegPmffo920tGugtXIGo3MEGglmRv2r4f13w==}
     dev: true
 
   /optionator@0.9.3:
