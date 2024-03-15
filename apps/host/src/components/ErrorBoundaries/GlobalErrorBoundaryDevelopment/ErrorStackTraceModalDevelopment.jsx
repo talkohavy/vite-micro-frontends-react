@@ -1,9 +1,10 @@
 import Modal from '../../Modal';
+import ErrorMessageTitle from './ErrorMessageTitle';
 import ErrorStackTrace from './ErrorStackTrace';
-import ErrorTitle from './ErrorTitle';
 import LineSeparator from './LineSeparator';
 import TopRedRibbon from './TopRedRibbon';
 
+/** @param {{error: Error | null}} props */
 export default function ErrorStackTraceModalDevelopment({ error }) {
   return (
     <Modal id='error-modal' className='bg-[#030303] bg-opacity-100 p-6'>
@@ -13,7 +14,7 @@ export default function ErrorStackTraceModalDevelopment({ error }) {
       >
         <TopRedRibbon />
 
-        <ErrorTitle error={error} />
+        <ErrorMessageTitle errorMessage={error.message} />
 
         <LineSeparator />
 
