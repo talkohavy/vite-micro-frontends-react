@@ -1,10 +1,10 @@
-import Modal from '../Modal';
+import Modal from '../../Modal';
 import ErrorStackTrace from './ErrorStackTrace';
 import ErrorTitle from './ErrorTitle';
 import LineSeparator from './LineSeparator';
 import TopRedRibbon from './TopRedRibbon';
 
-export default function ErrorBoundaryModal({ error }) {
+export default function ShowErrorStackTraceDevelopment({ error }) {
   return (
     <Modal id='error-modal' className='bg-[#030303] bg-opacity-100 p-6'>
       <div

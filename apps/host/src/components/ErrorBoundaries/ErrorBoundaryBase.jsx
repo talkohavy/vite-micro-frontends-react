@@ -8,7 +8,7 @@ import React from 'react';
  * }} ErrorBoundaryProps
  */
 
-export default class StandardErrorBoundary extends React.Component {
+export default class ErrorBoundaryBase extends React.Component {
   /** @param {ErrorBoundaryProps} props */
   constructor(props) {
     super(props);
@@ -36,13 +36,14 @@ export default class StandardErrorBoundary extends React.Component {
 
   /** @override */
   render() {
-    if (this.state.hasError) {
-      const { fallback: Fallback } = this.props;
-      const fallbackComponent = <Fallback error={this.state.error} />;
+    // Return children immediately when:
+    // - Case 1: not development mode
+    // - Case 2: no error
+    if (!this.state.hasError || process.env.NODE_ENV !== 'development') return this.props.children;
 
-      return fallbackComponent;
-    }
+    const { fallback: Fallback } = this.props;
+    const fallbackComponent = <Fallback error={this.state.error} />;
 
-    return this.props.children;
+    return fallbackComponent;
   }
 }
