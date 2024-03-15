@@ -30,5 +30,11 @@ export default function SideBarLinkList() {
     [pathname],
   );
 
-  return routes.map(({ to, text, isActive }) => <SideBarLinkItem key={text} to={to} text={text} isActive={isActive} />);
+  return (
+    <nav>
+      {routes.map(({ to, text, isActive }) => (
+        <SideBarLinkItem key={text} to={to} text={text} isActive={isActive} />
+      ))}
+    </nav>
+  );
 }

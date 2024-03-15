@@ -1,24 +1,10 @@
 /** @type {import('tailwindcss').Config} */
-export default {
-  // prefix: 'tw-', // The prefix option allows you to add a custom prefix to all of Tailwind’s generated utility classes. This can be really useful when layering Tailwind on top of existing CSS where there might be naming conflicts.
-  // separator: '_', // By default, We at tailwind use a colon (:), but it can be useful to change this if you’re using a templating language like Pug that doesn’t support special characters in class names.
-  content: ['./src/index.html', './src/**/*.{js,ts,jsx,tsx}'],
-  safelist: [{ pattern: /^(bg-|border-|text-)/, variants: ['hover', 'active'] }, 'shadow-lg'],
+module.exports = {
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  // safelist: [{ pattern: /^(bg-|border-|text-)/, variants: ['hover', 'active'] }, 'bg-red-200'],
   darkMode: ['class', '[data-theme="dark"]'], // <--- from tests I made on Storybook, this array doesn't work. Only the data-theme="dark" affects the result, and the class does nothing. At first I thought may there's an AND behavior, but no, just the data attributes affects it. The class is rendered useless in this array form.
   theme: {
-    screens: {
-      // The default values are:
-      // sm: '640px',
-      // md: '768px',
-      // lg: '1024px',
-      // xl: '1280px',
-      // '2xl': '1536px',
-      // My Custom Values are:
-      sm: '480px',
-      md: '768px',
-      lg: '976px',
-      xl: '1440px',
-    },
+    screens: { sm: '480px', md: '768px', lg: '976px', xl: '1440px' },
     extend: {
       spacing: {
         13: '3.25rem',
@@ -140,7 +126,6 @@ export default {
         '7xl': '80rem',
       },
       height: {
-        // 38: '152px',
         '80/100': '80%',
         '85/100': '85%',
         '90/100': '90%',
@@ -224,19 +209,11 @@ export default {
         1.5: '1.5px',
       },
       borderRadius: {
-        '4xl': '2rem', // <--- use like so: rounded-4xl
-      },
-      fontSize: {
-        '3xs': ['.5rem', { lineHeight: '0.5rem' }],
-        '2xs': ['.625rem', { lineHeight: '0.75rem' }],
+        '4xl': '2rem', // use like so: rounded-4xl
       },
       boxShadow: {
-        'btn-love':
-          '2px 2px 0.5em rgb(227 224 209 / 55%), inset 1px 1px 0 rgb(255 255 255 / 90%), inset -1px -1px 0 rgb(0 0 0 / 34%)',
-        'btn-love-active':
-          '0 0 0 rgb(227 224 209 / 55%), inset 0 0 0 rgb(255 255 255 / 90%), inset 2px 2px 2px rgb(0 0 0 / 34%)',
-        'btn-love-focus':
-          '1px 1px 0.1em rgb(227 224 209 / 55%), inset 2px 2px 0.1em rgb(255 255 255 / 90%), inset -3px -3px 0.1em rgb(0 0 0 / 34%)',
+        down: 'rgba(0, 0, 0, 0.08) 0px 0.9px 4px, rgba(0, 0, 0, 0.06) 0px 2.6px 8px, rgba(0, 0, 0, 0.05) 0px 5.7px 12px, rgba(0, 0, 0, 0.04) 0px 15px 15px',
+        '2xs': '0 0 1px 1px rgba(0, 0, 0, 0.1)',
         xs: '0 0 2px 2px rgba(0, 0, 0, 0.1)',
         sm: '0 0 4px 4px rgba(0, 0, 0, 0.1)',
         md: '0 0 6px 6px rgba(0, 0, 0, 0.1)',
@@ -303,47 +280,44 @@ export default {
         shake: 'shake ease-in 5s infinite',
         appear: 'appear 1000ms normal ease forwards',
       },
-      // keyframes: {
-      //   slideUp: {
-      //     from: { opacity: 0, transform: 'translateY(10px)' },
-      //     to: { opacity: 1, transform: 'translateY(0)' },
-      //   },
-      //   slideDown: {
-      //     from: { opacity: 0, transform: 'translateY(-10px)' },
-      //     to: { opacity: 1, transform: 'translateY(0)' },
-      //   },
-      //   spin: {
-      //     '0%': { transform: 'rotate(0deg)' },
-      //     '100%': { transform: 'rotate(360deg)' },
-      //   },
-      //   blinkingText: {
-      //     from: {
-      //       textShadow:
-      //         '0 0 2px #fff, 0 0 3px #dfaa7e, 0 0 4px #dfaa7e, 0 0 5px #dfaa7e, 0 0 6px #dfaa7e, 0 0 7px #dfaa7e, 0 0 8px #dfaa7e;',
-      //     },
-      //     to: {
-      //       textShadow:
-      //         '#FFF 0px 0px 1px, #FFF 0px 0px 2px, #FFF 0px 0px 3px, #dfaa7e 0px 0px 2px, #dfaa7e 0px 0px 3px, #dfaa7e 0px 0px 4px, #dfaa7e 0px 0px 20px, #dfaa7e 0px 0px 10px;',
-      //     },
-      //   },
-      //   shake: {
-      //     '0%': { left: 0 },
-      //     '1%': { left: -3 },
-      //     '2%': { left: 5 },
-      //     '3%': { left: -8 },
-      //     '4%': { left: 8 },
-      //     '5%': { left: -5 },
-      //     '6%': { left: 3 },
-      //     '7%': { left: 0 },
-      //   },
-      //   appear: {
-      //     '0%': { opacity: 0 },
-      //     '100%': { opacity: 1 },
-      //   },
-      // },
-      // ----------------------------------------
-      // Belongs to the plugin called line-clamp:
-      // ----------------------------------------
+      keyframes: {
+        slideUp: {
+          from: { opacity: 0, transform: 'translateY(10px)' },
+          to: { opacity: 1, transform: 'translateY(0)' },
+        },
+        slideDown: {
+          from: { opacity: 0, transform: 'translateY(-10px)' },
+          to: { opacity: 1, transform: 'translateY(0)' },
+        },
+        spin: {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
+        },
+        blinkingText: {
+          from: {
+            textShadow:
+              '0 0 2px #fff, 0 0 3px #dfaa7e, 0 0 4px #dfaa7e, 0 0 5px #dfaa7e, 0 0 6px #dfaa7e, 0 0 7px #dfaa7e, 0 0 8px #dfaa7e;',
+          },
+          to: {
+            textShadow:
+              '#FFF 0px 0px 1px, #FFF 0px 0px 2px, #FFF 0px 0px 3px, #dfaa7e 0px 0px 2px, #dfaa7e 0px 0px 3px, #dfaa7e 0px 0px 4px, #dfaa7e 0px 0px 20px, #dfaa7e 0px 0px 10px;',
+          },
+        },
+        shake: {
+          '0%': { left: 0 },
+          '1%': { left: -3 },
+          '2%': { left: 5 },
+          '3%': { left: -8 },
+          '4%': { left: 8 },
+          '5%': { left: -5 },
+          '6%': { left: 3 },
+          '7%': { left: 0 },
+        },
+        appear: {
+          '0%': { opacity: 0 },
+          '100%': { opacity: 1 },
+        },
+      },
       lineClamp: {
         // line clamp's default stops at 6 lines! but you can add even more:
         10: '10',
@@ -352,13 +326,6 @@ export default {
     },
   },
   corePlugins: {
-    // A way to disable tailwind's core functionalities:
-    // opacity: false, // disables the opacity function
-    // float: false,
-    // objectPosition: false,
-    // skew: false,
-    // sepia: false,
-    // preflight: false, // Just like you have app.css? tailwind have their own preflight css of global settings (paddings 0, margins 0, list-style: none, Headings are unstyled, etc.), you can cancel that if you want to provide your own preflight css.
     aspectRatio: false, // disable the aspectRatio core plugin to avoid conflicts with the native aspect-ratio utilities included in Tailwind CSS v3.0
   },
   variants: {
