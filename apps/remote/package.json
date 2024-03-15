@@ -13,9 +13,9 @@
     "format-prettier-fix": "prettier '**/*.json' --write --config ../../.prettierrc.mjs --ignore-path ../../.prettierignore",
     "test": "node --test",
     "dev": "nodemon",
-    "dev-standalone": "vite",
-    "micro-build": "vite build",
-    "micro-serve": "vite preview"
+    "dev:micro-build": "(export NODE_ENV=development && vite build)",
+    "dev:micro-serve": "(export NODE_ENV=development && vite preview)",
+    "dev-standalone": "vite"
   },
   "dependencies": {
     "react": "^18.2.0",

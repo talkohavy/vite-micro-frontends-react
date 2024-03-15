@@ -3,8 +3,8 @@
   "verbose": true,
   "delay": 300,
   "ignore": [".git", "node_modules", "**/node_modules"],
-  "watch": ["./src/**", "./src/index.html", "./tailwind.config.js", "./vite.config.js"],
+  "watch": ["./src/**", "./src/index.html", "./tailwind.config.cjs", "./vite.config.js"],
   "ignoreRoot": [],
   "ext": "js,jsx,ts,tsx,d.ts",
-  "exec": "pnpm run micro-build && pnpm run micro-serve"
+  "exec": "pnpm run dev:micro-build && pnpm run dev:micro-serve"
 }
