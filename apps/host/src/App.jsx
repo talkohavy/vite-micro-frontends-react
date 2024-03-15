@@ -5,7 +5,7 @@ import Layout from './components/Layout';
 const HomePage = lazy(() => import('./pages/Home'));
 const PageNotFound = lazy(() => import('./pages/PageNotFound'));
 
-function App() {
+export default function App() {
   return (
     <Layout>
       <Suspense>
@@ -21,5 +21,3 @@ function App() {
     </Layout>
   );
 }
-
-export default App;

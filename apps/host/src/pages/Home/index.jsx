@@ -1,3 +1,4 @@
+// @ts-ignore
 import Button from 'remoteApp/Button';
 
 export default function HomePage() {
