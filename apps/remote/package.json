@@ -5,13 +5,13 @@
   "type": "module",
   "scripts": {
     "clean": "rm -rf node_modules",
-    "lint": "eslint -c ../../.eslintrc.json --ignore-path ../../.eslintignore '**/*/*.{js,jsx,tsx,ts,d.ts,cjs,mjs}'",
+    "lint": "eslint -c .eslintrc.cjs --ignore-path ../../.eslintignore '**/*/*.{js,jsx,tsx,ts,d.ts,cjs,mjs}'",
+    "lint-fix": "eslint --fix -c .eslintrc.cjs --ignore-path ../../.eslintignore '**/*/*.{js,jsx,tsx,ts,d.ts,cjs,mjs}'",
     "lint-biome": "biome lint ./src",
-    "lint-fix": "eslint --fix -c ../../.eslintrc.json --ignore-path ../../.eslintignore '**/*/*.{js,jsx,tsx,ts,d.ts,cjs,mjs}'",
     "format": "biome format --verbose ./src",
     "format-prettier": "prettier '**/*.json' --check --config ../../.prettierrc.mjs --ignore-path ../../.prettierignore",
-    "format-fix-prettier": "prettier '**/*.json' --write --config ../../.prettierrc.mjs --ignore-path ../../.prettierignore",
-    "test": "vitest --config ../../vitest.config.js",
+    "format-prettier-fix": "prettier '**/*.json' --write --config ../../.prettierrc.mjs --ignore-path ../../.prettierignore",
+    "test": "node --test",
     "dev": "nodemon",
     "dev-standalone": "vite",
     "micro-build": "vite build",
@@ -25,6 +25,7 @@
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
     "@vitejs/plugin-react-swc": "^3.6.0",
+    "eslint": "^8.56.0",
     "eslint-plugin-ezlint": "^1.2.1",
     "vite": "^4.0.5"
   }

@@ -5,12 +5,12 @@
   "type": "module",
   "scripts": {
     "clean": "rm -rf node_modules",
-    "lint": "eslint -c ../../.eslintrc.json --ignore-path ../../.eslintignore '**/*/*.{js,jsx,tsx,ts,d.ts,cjs,mjs}'",
+    "lint": "eslint -c .eslintrc.cjs --ignore-path ../../.eslintignore '**/*/*.{js,jsx,tsx,ts,d.ts,cjs,mjs}'",
+    "lint-fix": "eslint --fix -c .eslintrc.cjs --ignore-path ../../.eslintignore '**/*/*.{js,jsx,tsx,ts,d.ts,cjs,mjs}'",
     "lint-biome": "biome lint ./src",
-    "lint-fix": "eslint --fix -c ../../.eslintrc.json --ignore-path ../../.eslintignore '**/*/*.{js,jsx,tsx,ts,d.ts,cjs,mjs}'",
     "format": "biome format --verbose ./src",
     "format-prettier": "prettier '**/*.json' --check --config ../../.prettierrc.mjs --ignore-path ../../.prettierignore",
-    "format-fix-prettier": "prettier '**/*.json' --write --config ../../.prettierrc.mjs --ignore-path ../../.prettierignore",
+    "format-prettier-fix": "prettier '**/*.json' --write --config ../../.prettierrc.mjs --ignore-path ../../.prettierignore",
     "test": "vitest --config ../../vitest.config.js",
     "dev": "nodemon",
     "dev-standalone": "vite",
@@ -21,17 +21,18 @@
     "clsx": "^2.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.22.3"
+    "react-router-dom": "^6.22.3",
+    "tailwind-merge": "^2.2.1"
   },
   "devDependencies": {
+    "@types/node": "^20.11.27",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "@vitejs/plugin-react-swc": "^3.6.0",
     "autoprefixer": "^10.4.18",
+    "eslint": "^8.56.0",
     "eslint-plugin-ezlint": "^1.2.1",
     "postcss": "^8.4.35",
-    "@types/node": "^20.11.27",
-    "eslint": "^8.56.0",
     "tailwindcss": "^3.4.1",
     "vite": "^5.1.6"
   }

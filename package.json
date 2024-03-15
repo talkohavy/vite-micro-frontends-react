@@ -9,7 +9,7 @@
     "turbo-lint-biome": "turbo run lint-biome",
     "turbo-format": "turbo run format",
     "turbo-format-prettier": "turbo run format-prettier",
-    "turbo-format-fix-prettier": "turbo run format-fix-prettier",
+    "turbo-format-prettier-fix": "turbo run format-prettier-fix",
     "turbo-typecheck": "turbo run typecheck",
     "turbo-build": "turbo run build",
     "turbo-test": "turbo run test",

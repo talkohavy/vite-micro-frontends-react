@@ -6,7 +6,7 @@
     "lint": {},
     "lint-biome": {},
     "format-prettier": {},
-    "format-fix-prettier": {},
+    "format-prettier-fix": {},
     "format": {
       "dependsOn": ["lint"]
       // - should only be rerun when these change:
