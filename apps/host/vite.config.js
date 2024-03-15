@@ -41,8 +41,8 @@ export default defineConfig((props) => {
       federation({
         name: 'app',
         remotes: {
-          // remoteApp: 'http://localhost:3001/main/remoteEntry.js', // <--- the simple form!
-          remoteApp: {
+          // mf_remote: 'http://localhost:3001/main/remoteEntry.js', // <--- the simple form!
+          mf_remote: {
             externalType: 'url',
             external: 'http://localhost:3001/main/remoteEntry.js',
             format: 'esm', // <--- defaults to 'esm'. Options are: 'esm' | 'var' | 'systemjs'.
