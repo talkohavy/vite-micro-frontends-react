@@ -31,7 +31,7 @@ export default function SideBarLinkList() {
   );
 
   return (
-    <nav>
+    <nav className='flex flex-col items-start justify-start'>
       {routes.map(({ to, text, isActive }) => (
         <SideBarLinkItem key={text} to={to} text={text} isActive={isActive} />
       ))}
