@@ -1,9 +1,9 @@
 import ErrorBoundaryBase from '../ErrorBoundaryBase';
-import ShowErrorStackTraceDevelopment from './ShowErrorStackTraceDevelopment';
+import ErrorStackTraceModalDevelopment from './ErrorStackTraceModalDevelopment';
 
 export default function GlobalErrorBoundaryDevelopment({ children }) {
   return (
-    <ErrorBoundaryBase isDevelopmentOnly fallback={ShowErrorStackTraceDevelopment}>
+    <ErrorBoundaryBase isDevelopmentOnly fallback={ErrorStackTraceModalDevelopment}>
       {children}
     </ErrorBoundaryBase>
   );
