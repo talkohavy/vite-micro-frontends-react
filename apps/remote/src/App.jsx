@@ -1,9 +1,6 @@
-import { useState } from 'react';
-import { Button } from './components/Button';
+import Button from './components/Button';
 
-function App() {
-  const [count, setCount] = useState(0);
-
+export default function App() {
   return (
     <div className='App'>
       <h1>Vite + React</h1>
@@ -17,5 +14,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
