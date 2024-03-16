@@ -4,33 +4,45 @@
     // -------------------
     // Section 1: Projects
     // -------------------
+    // "incremental": false, // Save .tsbuildinfo files to allow for incremental compilation of projects.
 
     // -----------------------------------
     // Section 2: Language and Environment
     // -----------------------------------
+    // "target": "ESNext", // default value is "ES3"
+    // "jsx": "react-jsx",
+    // "lib": ["ESNext", "DOM"], // adding the "DOM" library helps vs-code to recognize the window & document objects.
 
     // ------------------
     // Section 3: Modules
     // ------------------
+    // "module": "ESNext",
+    // "moduleResolution": "Node", // Possible values: "Node", "Node16", "NodeNext"
+    // "resolveJsonModule": true,
     "baseUrl": "./",
-    "paths": {
-      "@src/*": ["src/*"], // This is for app-frontend only!
-      "@common/*": ["../../packages/common/src/*"], // This is for app-frontend only! which has vite! The rest would have to use: @luckylove-pkg/common
-      "@statistics/*": ["../../packages/statistics/src/*"] // This is for app-frontend only! which has vite! The rest would have to use: @luckylove-pkg/common
-    },
+    "paths": {},
+    "typeRoots": ["node_modules/@types"],
 
     // -----------------------------
     // Section 4: JavaScript Support
     // -----------------------------
+    // "checkJs": true, // without it? this config file would not apply to js/jsx files.
+    // "maxNodeModuleJsDepth": 0, // Specify the maximum folder depth used for checking JavaScript files from 'node_modules'. Only applicable with 'allowJs'.
 
     // ---------------
     // Section 5: Emit
     // ---------------
+    // "sourceMap": true, // default value is false
     "outDir": "./dist", // <--- this is not relevant because i'm not building with tsc (i'm using vite's esbuild)
 
     // ------------------------------
     // Section 6: Interop Constraints
     // ------------------------------
+    // "isolatedModules": true, // <--- Setting the isolatedModules flag tells TypeScript to warn you if you write certain code that can’t be correctly interpreted by a single-file transpilation process.
+    // "esModuleInterop": true,
+    // "allowSyntheticDefaultImports": true,
+    // "forceConsistentCasingInFileNames": true,
+    // "preserveSymlinks": true, // <--- Solved being redirected to node_modules/.pnpm symlink all the time! Disable resolving symlinks to their realpath. This correlates to the same flag in node. But on the other-hand, I wasn't able to import Page as type from playwright in jsdoc.
 
     // ------------------------
     // Section 7: Type Checking
@@ -54,6 +66,11 @@
     // "noPropertyAccessFromIndexSignature": true,       /* Enforces using indexed accessors for keys declared using an indexed type. */
     // "allowUnusedLabels": true,                        /* Disable error reporting for unused labels. */
     // "allowUnreachableCode": true,                     /* Disable error reporting for unreachable code. */
+
+    // -----------------------
+    // Section 8: Completeness
+    // -----------------------
+    // "skipLibCheck": true
   },
   "compileOnSave": true,
   "exclude": ["node_modules"],
