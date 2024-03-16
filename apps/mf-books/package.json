@@ -1,0 +1,5 @@
+{
+	"devDependencies": {
+		"eslint-plugin-ezlint": "^1.4.2"
+	}
+}
