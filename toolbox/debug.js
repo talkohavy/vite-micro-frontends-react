@@ -17,6 +17,13 @@ const programs = [
       command: 'cd apps/remote && npm run dev',
     },
   },
+  {
+    isEncoded: true,
+    config: {
+      name: 'mf-books',
+      command: 'cd apps/mf-books && npm run dev',
+    },
+  },
 ];
 
 async function runProgramInDebug() {
