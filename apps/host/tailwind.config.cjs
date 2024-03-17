@@ -271,6 +271,16 @@ module.exports = {
         'gradient-radial': 'radial-gradient(circle,var(--tw-gradient-stops))',
         'gradient-radial-bottom': 'radial-gradient(circle at bottom,var(--tw-gradient-stops))',
       },
+      strokeWidth: {
+        3: '3px',
+        4: '4px',
+        5: '5px',
+        6: '6px',
+        7: '7px',
+        8: '8px',
+        9: '9px',
+        10: '10px',
+      },
       animation: {
         'slide-up': 'slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1)',
         'slide-down': 'slideDown 0.6s cubic-bezier(0.16, 1, 0.3, 1)',
