@@ -21,7 +21,7 @@ export default class ErrorBoundaryBase extends React.Component {
     // and the error itself
 
     /** @type {{error: Error | null}} */
-    this.state = { hasError: false, error: undefined };
+    this.state = { hasError: false, error: null };
   }
 
   // update the component state when an error occurs

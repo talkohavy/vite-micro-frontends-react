@@ -27,6 +27,7 @@
     "kill-port": "^2.0.1",
     "open-terminal-programmatically": "^0.0.5",
     "prettier": "^3.2.5",
-    "turbo": "^1.12.5"
+    "turbo": "^1.12.5",
+    "typescript": "^5.4.2"
   }
 }
