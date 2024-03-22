@@ -11,19 +11,26 @@ import './index.css';
 
 const { store, history } = configureMyStore({});
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <GlobalErrorBoundaryDevelopment>
-      <Provider store={store}>
-        <HistoryRouter history={history}>
-          <DarkThemeProvider>
-            <App />
-          </DarkThemeProvider>
-        </HistoryRouter>
-      </Provider>
-    </GlobalErrorBoundaryDevelopment>
-  </React.StrictMode>,
-);
+function Client() {
+  return (
+    <React.StrictMode>
+      <GlobalErrorBoundaryDevelopment>
+        <Provider store={store}>
+          <HistoryRouter history={history}>
+            <DarkThemeProvider>
+              <App />
+            </DarkThemeProvider>
+          </HistoryRouter>
+        </Provider>
+      </GlobalErrorBoundaryDevelopment>
+    </React.StrictMode>
+  );
+}
+
+/** @type {any} */
+const rootElement = document.getElementById('root');
+const root = ReactDOM.createRoot(rootElement);
+root.render(<Client />);
 
 window.addEventListener('error', ({ error }) => ReactErrorOverlay(error));
 window.addEventListener('unhandledrejection', ({ reason }) => ReactErrorOverlay(reason));
