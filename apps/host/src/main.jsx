@@ -9,7 +9,14 @@ import DarkThemeProvider from './providers/DarkThemeProvider';
 import { configureMyStore } from './store';
 import './index.css';
 
-const { store, history } = configureMyStore({});
+/** @typedef {import('./store/types').State} State */
+
+const isLogged = !!localStorage.getItem('isLogged');
+
+/** @type {Partial<State>} */
+const preloadedState = { user: { isLogged } };
+
+const { store, history } = configureMyStore({ preloadedState });
 
 function Client() {
   return (

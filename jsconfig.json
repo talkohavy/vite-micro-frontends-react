@@ -46,9 +46,6 @@
     // ------------------------
     // Section 7: Type Checking
     // ------------------------
-    // ------------------------
-    // Section 7: Type Checking
-    // ------------------------
     // "strictNullChecks": true,                         // <--- When type checking, take into account 'null' and 'undefined'.
     // "strictFunctionTypes": true,                      // <--- When assigning functions, check to ensure parameters and the return values are subtype-compatible.
     // "strictBindCallApply": true,                      // <--- Check that the arguments for 'bind', 'call', and 'apply' methods match the original function.
