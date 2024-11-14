@@ -1,4 +1,6 @@
 module.exports = {
   extends: ['plugin:ezlint/react'],
-  rules: {},
+  rules: {
+    'tailwindcss/no-custom-classname': 'off',
+  },
 };

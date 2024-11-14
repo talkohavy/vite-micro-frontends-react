@@ -1,10 +1,13 @@
-import { defineConfig } from 'vite';
+import path from 'node:path';
+import { UserConfig, defineConfig } from 'vite';
 import federation from '@originjs/vite-plugin-federation';
 import react from '@vitejs/plugin-react-swc';
 
+const rootDir = path.join(__dirname, '../../../../');
+
 // https://vitejs.dev/config/
-export default defineConfig((_props) => {
-  console.log('process.env.NODE_ENV:', process.env.NODE_ENV);
+export default defineConfig(({ mode }) => {
+  console.log('VITE running in mode:', mode);
 
   return {
     root: `${process.cwd()}/src`,
@@ -15,8 +18,15 @@ export default defineConfig((_props) => {
       strictPort: true,
       open: false,
     },
+    resolve: {
+      alias: {
+        '@src': path.resolve(__dirname, 'src'),
+      },
+    },
+    envDir: rootDir,
     build: {
       target: 'esnext', // <--- important!
+      modulePreload: false, // <--- defaults to true.
       outDir: '../dist', // <--- default is dist. Specify the output directory (relative to project root).
       minify: 'esbuild', // <--- Options are: 'esbuild' (default) | 'terser'. The default is esbuild which is 20 ~ 40x faster than terser and only 1 ~ 2% worse compression. Terser must be installed when it is set to 'terser'.
       assetsDir: 'main', // <--- default is assets. Specify the directory to nest generated assets under (relative to build.outDir).
@@ -32,7 +42,6 @@ export default defineConfig((_props) => {
       emptyOutDir: true, // <--- defaults to true if outDir is inside root. By default, Vite will empty the outDir on build if it is inside project root. It will emit a warning if outDir is outside of root to avoid accidentally removing important files. You can explicitly set this option to suppress the warning. This is also available via command line as --emptyOutDir
       cssCodeSplit: false, // defaults to false. Enable/disable CSS code splitting. When enabled, CSS imported in async chunks will be inlined into the async chunk itself and inserted when the chunk is loaded. If disabled, all CSS in the entire project will be extracted into a single CSS file.
       manifest: true, // <--- When set to true, the build will also generate a manifest.json file that contains a mapping of non-hashed asset filenames to their hashed versions, which can then be used by a server framework to render the correct asset links. When the value is a string, it will be used as the manifest file name. Defaults to false.
-      modulePreload: false, // <--- defaults to true.
     },
     plugins: [
       react(),
@@ -50,5 +59,5 @@ export default defineConfig((_props) => {
     clearScreen: false, // <--- default is true. false prevents Vite from clearing the terminal screen when logging certain messages
     cacheDir: '../node_modules/.cache/vite',
     logLevel: 'info', // <--- default is info. Options are: info, warn, error, silent
-  };
+  } as UserConfig;
 });

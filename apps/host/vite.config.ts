@@ -1,5 +1,5 @@
 import path from 'node:path';
-import { defineConfig } from 'vite';
+import { UserConfig, defineConfig } from 'vite';
 import federation from '@originjs/vite-plugin-federation';
 import react from '@vitejs/plugin-react-swc';
 
@@ -88,5 +88,5 @@ export default defineConfig(({ mode }) => {
       devSourcemap: true,
       transformer: 'postcss', // <--- Options are: 'postcss' (default) | 'lightningcss'. While Lightning CSS handles the most commonly used PostCSS plugins like autoprefixer, postcss-preset-env, and CSS modules, you may still need PostCSS for more custom plugins like TailwindCSS. If that's the case, your PostCSS config will be picked up automatically.
     },
-  };
+  } as UserConfig;
 });
