@@ -51,8 +51,8 @@ export default function InputFloat(props: InputFloatProps) {
   const isFloating = isFocused || innerValue !== '' || !!rendererLeft || isAlwaysFloating;
 
   // all useCallbacks:
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const setOuterValue = useCallback(
+    // eslint-disable-next-line react-compiler/react-compiler
     Number.isInteger(debounceTime) ? wrapInDebounce(setValue, debounceTime) : setValue,
     [debounceTime, setValue],
   );
@@ -66,7 +66,7 @@ export default function InputFloat(props: InputFloatProps) {
         onInputChange?.({ newValue });
       }
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
     [setValue, dontChangeRule, onInputChange],
   );
 
