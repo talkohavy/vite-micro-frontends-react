@@ -4,11 +4,9 @@ import { Route, Routes } from 'react-router-dom';
 import MicroFrontendErrorBoundary from './components/ErrorBoundaries/MicroFrontendErrorBoundary';
 import Layout from './components/Layout';
 import Redirect from './components/Redirect';
+import { authorizedRoutes, unauthorizedRoutes } from './routes';
 import { State } from './store/types';
 
-const Login = lazy(() => import('./pages/unauthorized/Login'));
-const HomePage = lazy(() => import('./pages/authorized/HomePage'));
-const BooksPage = lazy(() => import('./pages/authorized/BooksPage'));
 const PageNotFound = lazy(() => import('./pages/unauthorized/PageNotFound'));
 
 export default function App() {
@@ -20,10 +18,9 @@ export default function App() {
         <Suspense>
           <MicroFrontendErrorBoundary>
             <Routes>
-              <Route path='/index.html' element={<HomePage />} />
-              <Route path='/' element={<HomePage />} />
-              <Route path='/books' element={<BooksPage />} />
-              {/* <Route path='/list/:id' element={<SinlgeItemPage />} /> */}
+              {authorizedRoutes.map(({ to: path, Component }, index) => (
+                <Route key={index} path={path} element={<Component />} />
+              ))}
 
               <Route path='*' element={<PageNotFound />} />
             </Routes>
@@ -35,9 +32,9 @@ export default function App() {
   return (
     <Suspense>
       <Routes>
-        <Route path='/index.html' element={<Login />} />
-        <Route path='/' element={<Login />} />
-        <Route path='/login' element={<Login />} />
+        {unauthorizedRoutes.map(({ to: path, Component }, index) => (
+          <Route key={index} path={path} element={<Component />} />
+        ))}
 
         <Route path='*' element={<Redirect />} />
       </Routes>
