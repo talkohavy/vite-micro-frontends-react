@@ -5,6 +5,7 @@ import { HistoryRouter } from 'redux-first-history/rr6';
 import App from './App';
 import GlobalErrorBoundaryDevelopment from './components/ErrorBoundaries/GlobalErrorBoundaryDevelopment';
 import ReactErrorOverlay from './components/ReactErrorOverlay';
+import SuspenseUntilReady from './components/SuspenseUntilReady';
 import DarkThemeProvider from './providers/DarkThemeProvider';
 import { configureMyStore } from './store';
 import { State } from './store/types';
@@ -19,15 +20,21 @@ const { store, history } = configureMyStore({ preloadedState });
 function Client() {
   return (
     <React.StrictMode>
-      <GlobalErrorBoundaryDevelopment>
-        <Provider store={store}>
-          <HistoryRouter history={history}>
-            <DarkThemeProvider>
-              <App />
-            </DarkThemeProvider>
-          </HistoryRouter>
-        </Provider>
-      </GlobalErrorBoundaryDevelopment>
+      <SuspenseUntilReady
+        asyncFn={async () => {
+          console.log('Application is up and running!');
+        }}
+      >
+        <GlobalErrorBoundaryDevelopment>
+          <Provider store={store}>
+            <HistoryRouter history={history}>
+              <DarkThemeProvider>
+                <App />
+              </DarkThemeProvider>
+            </HistoryRouter>
+          </Provider>
+        </GlobalErrorBoundaryDevelopment>
+      </SuspenseUntilReady>
     </React.StrictMode>
   );
 }
