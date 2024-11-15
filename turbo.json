@@ -1,5 +1,6 @@
 {
   "$schema": "https://turbo.build/schema.json",
+  "dangerouslyDisablePackageManagerCheck": true,
   "tasks": {
     "typecheck": {},
     // A package's `lint` script has no dependencies and can be run whenever. It also has no filesystem outputs.
