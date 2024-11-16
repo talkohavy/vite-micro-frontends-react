@@ -1,6 +1,11 @@
+import url from 'url';
+import path from 'path';
 import { defineConfig } from 'vite';
 import federation from '@originjs/vite-plugin-federation';
 import react from '@vitejs/plugin-react-swc';
+
+const __filename = url.fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -14,6 +19,11 @@ export default defineConfig({
       shared: ['react', 'react-dom'],
     }),
   ],
+  resolve: {
+    alias: {
+      '@src': path.resolve(__dirname, 'src'),
+    },
+  },
   build: {
     modulePreload: false,
     target: 'esnext',
