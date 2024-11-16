@@ -13,8 +13,10 @@
     "format-prettier-fix": "prettier '**/*.json' --write --config ../../.prettierrc.mjs --ignore-path ../../.prettierignore",
     "test": "node --test",
     "dev": "nodemon",
-    "dev:micro-build": "(export NODE_ENV=development && vite build)",
-    "dev:micro-serve": "(export NODE_ENV=development && vite preview)",
+    "build": "vite build",
+    "build-watch": "vite build --watch",
+    "serve": "vite preview",
+    "preview": "vite preview",
     "dev-standalone": "vite"
   },
   "dependencies": {
