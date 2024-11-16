@@ -1,40 +1,17 @@
-import { createBrowserHistory } from 'history';
-import { createReduxHistoryContext } from 'redux-first-history';
-import { configureStore } from '@reduxjs/toolkit';
-import { userMiddleware, userReducer } from './slices/user';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { userReducer } from './slices/user';
 
-function getAllMiddlewares() {
-  return [userMiddleware];
-}
+const rootReducer = combineReducers({
+  user: userReducer,
+});
 
-/**
- * @param {{
- *   preloadedState?: any,
- *   axiosInstance?: any
- * }} _props
- */
-export function configureMyStore({ preloadedState = {} }) {
-  const { createReduxHistory, routerMiddleware, routerReducer } = createReduxHistoryContext({
-    history: createBrowserHistory(),
-  });
-
-  const store = configureStore({
+export function createStore(preloadedState?: State) {
+  return configureStore({
+    reducer: rootReducer,
     preloadedState,
-    // @ts-ignore
-    middleware: (getDefaultMiddleware) => {
-      const middlewares = getAllMiddlewares();
-      middlewares.push(routerMiddleware); // <--- for dispatching history actions
-      // import.meta.env.MODE !== 'production' && middlewares.push(myLogger);
-      return getDefaultMiddleware({ serializableCheck: false }).concat(...middlewares);
-    },
-    reducer: {
-      // @ts-ignore
-      router: routerReducer,
-      user: userReducer,
-    },
   });
-
-  const history = createReduxHistory(store);
-
-  return { store, history };
 }
+
+export type State = ReturnType<typeof rootReducer>;
+export type AppStore = ReturnType<typeof createStore>;
+export type AppDispatch = AppStore['dispatch'];

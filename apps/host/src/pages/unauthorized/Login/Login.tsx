@@ -1,19 +1,21 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import Box from '../../../components/Box';
 import Button from '../../../components/Button';
 import InputFloat from '../../../components/InputFloat';
 import InputPassword from '../../../components/InputPassword';
 import LogoCircle from '../../../components/LogoCircle';
-import { login } from '../../../store/slices/user/actions';
 import Background from './Background';
+
+// import { useDispatch } from 'react-redux';
+// import { login } from '../../../store/slices/user/actions';
 
 export default function LoginPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  const handleLogin = () => dispatch(login());
+  // const handleLogin = () => dispatch(login());
+  const handleLogin = () => console.log('hi');
 
   return (
     <Background>
