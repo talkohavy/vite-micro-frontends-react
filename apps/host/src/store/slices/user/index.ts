@@ -1,1 +1,2 @@
-export { userReducer } from './slice';
+export { userMiddleware } from './middleware';
+export { userReducer } from './reducer';

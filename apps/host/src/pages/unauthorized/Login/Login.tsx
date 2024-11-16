@@ -6,15 +6,14 @@ import InputPassword from '../../../components/InputPassword';
 import LogoCircle from '../../../components/LogoCircle';
 import Background from './Background';
 
-// import { useDispatch } from 'react-redux';
 // import { login } from '../../../store/slices/user/actions';
+// import { useDispatch } from 'react-redux';
 
 export default function LoginPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   // const dispatch = useDispatch();
 
-  // const handleLogin = () => dispatch(login());
   const handleLogin = () => console.log('hi');
 
   return (
