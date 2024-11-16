@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "lint": "eslint -c eslint.config.js",
     "dev": "vite --port 5000 --strictPort",
     "build": "vite build",
     "preview": "vite preview --port 5000 --strictPort",
@@ -18,7 +19,7 @@
     "@vitejs/plugin-react": "^4.3.3",
     "@vitejs/plugin-react-swc": "^3.7.1",
     "autoprefixer": "^10.4.20",
-    "eslint": "^9.15.0",
+    "eslint": "^9.14.0",
     "eslint-plugin-react-compiler": "19.0.0-beta-a7bf2bd-20241110",
     "globals": "^15.12.0",
     "postcss": "^8.4.49",
