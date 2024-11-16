@@ -11,7 +11,8 @@ import { createStore } from './store';
 import { State } from './store';
 import './index.css';
 
-const isLogged = !!localStorage.getItem('isLogged');
+// const isLogged = !!localStorage.getItem('isLogged');
+const isLogged = true;
 
 const preloadedState = { user: { isLogged } } as State;
 
