@@ -5,7 +5,7 @@ import MicroFrontendErrorBoundary from './components/ErrorBoundaries/MicroFronte
 import Layout from './components/Layout';
 import Redirect from './components/Redirect';
 import { authorizedRoutes, unauthorizedRoutes } from './routes';
-import { State } from './store/types';
+import { State } from './store';
 
 const PageNotFound = lazy(() => import('./pages/unauthorized/PageNotFound'));
 
