@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@module-federation/runtime':
+        specifier: ^0.7.3
+        version: 0.7.3
       '@reduxjs/toolkit':
         specifier: ^2.3.0
         version: 2.3.0(react-redux@9.1.2(@types/react@18.3.12)(react@18.3.1)(redux@5.0.1))(react@18.3.1)
@@ -419,6 +422,15 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
+
+  '@module-federation/error-codes@0.7.3':
+    resolution: {integrity: sha512-5jYNheYQZFek776t9h2I6qYEh6EdE2xsOJRBCicOC/DoBIcwztqbkPyu2ZYdO1c02qia2BTsLi6wOZ5TV9id7g==}
+
+  '@module-federation/runtime@0.7.3':
+    resolution: {integrity: sha512-jjBwtT8iIRo70mfBK2Z0jGxjfM9zjYjVOh9qhTbbtlGTopkU/DQrHBGuxeyLXBGQXqjd6MYzXNVeRL0mif2Z0g==}
+
+  '@module-federation/sdk@0.7.3':
+    resolution: {integrity: sha512-DeU2pvEqiTWcfuZuWeV1/XSRU6zC4u7v2uLg44F6uRt5+F0W/eVwb0Wme9CmEmL/oit0dZ7qe09bf/IRrEJylw==}
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -1074,6 +1086,10 @@ packages:
 
   isexe@2.0.0:
     resolution: {integrity: sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==}
+
+  isomorphic-rslog@0.0.6:
+    resolution: {integrity: sha512-HM0q6XqQ93psDlqvuViNs/Ea3hAyGDkIdVAHlrEocjjAwGrs1fZ+EdQjS9eUPacnYB7Y8SoDdSY3H8p3ce205A==}
+    engines: {node: '>=14.17.6'}
 
   jackspeak@3.4.3:
     resolution: {integrity: sha512-OGlZQpz2yfahA/Rd1Y8Cd9SIEsqvXkLVoSw/cgwhnhFMDbsQFeZYoJJ7bIZBS9BcamUW96asq/npPWugM+RQBw==}
@@ -1892,6 +1908,17 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
+  '@module-federation/error-codes@0.7.3': {}
+
+  '@module-federation/runtime@0.7.3':
+    dependencies:
+      '@module-federation/error-codes': 0.7.3
+      '@module-federation/sdk': 0.7.3
+
+  '@module-federation/sdk@0.7.3':
+    dependencies:
+      isomorphic-rslog: 0.0.6
+
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
       '@nodelib/fs.stat': 2.0.5
@@ -2535,6 +2562,8 @@ snapshots:
   is-number@7.0.0: {}
 
   isexe@2.0.0: {}
+
+  isomorphic-rslog@0.0.6: {}
 
   jackspeak@3.4.3:
     dependencies:

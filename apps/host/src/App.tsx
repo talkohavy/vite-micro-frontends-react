@@ -4,14 +4,11 @@ import MicroFrontendErrorBoundary from './components/ErrorBoundaries/MicroFronte
 import Layout from './components/Layout';
 import Redirect from './components/Redirect';
 import { authorizedRoutes, unauthorizedRoutes } from './routes';
-import { State } from './store/types';
-
-// import { useSelector } from 'react-redux';
 
 const PageNotFound = lazy(() => import('./pages/unauthorized/PageNotFound'));
 
 export default function App() {
-  const isAuthorized = true
+  const isAuthorized = true;
   // const { isLogged: isAuthorized } = useSelector((state: State) => state.user);
 
   if (isAuthorized)

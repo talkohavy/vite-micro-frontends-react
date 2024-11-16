@@ -2,6 +2,7 @@ import { lazy } from 'react';
 
 const HomePage = lazy(() => import('./pages/authorized/HomePage'));
 const BooksPage = lazy(() => import('./pages/authorized/BooksPage'));
+const DynamicMF = lazy(() => import('./pages/authorized/DynamicMF'));
 const LoginPage = lazy(() => import('./pages/unauthorized/Login'));
 
 export const authorizedRoutes = [
@@ -16,6 +17,12 @@ export const authorizedRoutes = [
     text: 'Books',
     activeNames: ['/books'],
     Component: BooksPage,
+  },
+  {
+    to: '/dynamic',
+    text: 'Dynamic',
+    activeNames: ['/dynamic'],
+    Component: DynamicMF,
   },
 ];
 
