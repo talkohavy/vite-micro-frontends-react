@@ -6,9 +6,8 @@ This example demos consumption of federated modules from a vite bundle. `host` (
 
 Install `pnpm` as per instructions provided [here](https://pnpm.io/installation)
 
-Run `pnpm install`, then `pnpm run build` and `pnpm run serve`. This will build and serve both `host` and `remote` on ports 3000, 3001 respectively.
+Run `pnpm install`, then `pnpm run dev` under each app under `apps` folder. This will build and serve both remotes, and run the `host` in development mode.
 
 - HOST: [localhost:3000](http://localhost:3000/)
-- REMOTE: [localhost:3001](http://localhost:3001/)
-
-`CTRL + C` can only stop the host server. You can run `pnpm stop` to stop all services.
+- REMOTE-BOOKS: [localhost:3001](http://localhost:3001/)
+- REMOTE-DRAGONS: [localhost:3002](http://localhost:3002/)
