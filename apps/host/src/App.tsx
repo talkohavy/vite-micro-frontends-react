@@ -1,16 +1,15 @@
 import { Suspense, lazy } from 'react';
-import { useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import MicroFrontendErrorBoundary from './components/ErrorBoundaries/MicroFrontendErrorBoundary';
 import Layout from './components/Layout';
 import Redirect from './components/Redirect';
 import { authorizedRoutes, unauthorizedRoutes } from './routes';
-import { State } from './store';
 
 const PageNotFound = lazy(() => import('./pages/unauthorized/PageNotFound'));
 
 export default function App() {
-  const { isLogged: isAuthorized } = useSelector((state: State) => state.user);
+  const isAuthorized = true;
+  // const { isLogged: isAuthorized } = useSelector((state: State) => state.user);
 
   if (isAuthorized)
     return (

@@ -1,17 +1,20 @@
 import { PropsWithChildren, useCallback, useMemo, useState } from 'react';
-import { useLocalStorage } from '../../hooks/useLocalStorage';
-import { LSKEY_THEME } from '../../utils/globalConstants';
+import { useLocalStorage } from '@src/hooks/useLocalStorage';
+import { LS_KEY_THEME } from '@src/common/constants';
 import { DarkThemeContext } from './DarkThemeContext';
-import { Theme } from './constants';
+
+export const THEME_OPTIONS = { dark: 'dark', light: 'light' };
 
 export default function DarkThemeProvider(props: PropsWithChildren) {
   const { children } = props;
 
-  const { value: localStorageTheme, setValue: setLocalStorageTheme } = useLocalStorage(LSKEY_THEME);
+  const { value: localStorageTheme, setValue: setLocalStorageTheme } = useLocalStorage(LS_KEY_THEME);
 
   // all useStates:
   const [isDarkMode, setIsDarkMode] = useState(() => {
-    const deviceTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? Theme.Dark : Theme.Light;
+    const deviceTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
+      ? THEME_OPTIONS.dark
+      : THEME_OPTIONS.light;
 
     const currentTheme = localStorageTheme || deviceTheme;
 
@@ -19,12 +22,12 @@ export default function DarkThemeProvider(props: PropsWithChildren) {
     htmlElement.setAttribute('data-theme', currentTheme);
     document.body.setAttribute('class', currentTheme);
 
-    return currentTheme === Theme.Dark;
+    return currentTheme === THEME_OPTIONS.dark;
   });
 
   // all functions:
   const toggleDarkMode = useCallback(() => {
-    const themeToBe = isDarkMode ? Theme.Light : Theme.Dark;
+    const themeToBe = isDarkMode ? THEME_OPTIONS.light : THEME_OPTIONS.dark;
     setLocalStorageTheme(themeToBe);
 
     const htmlElement = document.documentElement;

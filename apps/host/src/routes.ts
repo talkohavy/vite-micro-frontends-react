@@ -1,7 +1,8 @@
 import { lazy } from 'react';
 
 const HomePage = lazy(() => import('./pages/authorized/HomePage'));
-const BooksPage = lazy(() => import('./pages/authorized/BooksPage'));
+const BooksMF = lazy(() => import('./pages/authorized/BooksMF'));
+const DragonsMF = lazy(() => import('./pages/authorized/DragonsMF'));
 const LoginPage = lazy(() => import('./pages/unauthorized/Login'));
 
 export const authorizedRoutes = [
@@ -15,7 +16,13 @@ export const authorizedRoutes = [
     to: '/books',
     text: 'Books',
     activeNames: ['/books'],
-    Component: BooksPage,
+    Component: BooksMF,
+  },
+  {
+    to: '/dragons',
+    text: 'Dragons',
+    activeNames: ['/dragons'],
+    Component: DragonsMF,
   },
 ];
 

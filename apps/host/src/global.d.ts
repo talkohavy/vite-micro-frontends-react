@@ -1,5 +1,4 @@
-// Before it was: 'remoteApp/*'
-declare module 'mf_*' {
+declare module '@mf-*' {
   const content: any;
 
   export default content;

@@ -44,7 +44,7 @@
   // ------------------------
   // Part 2: Javascript Rules
   // ------------------------
-  "javascript.preferences.importModuleSpecifier": "shortest", // <--- defaults to "shortest"
+  "javascript.preferences.importModuleSpecifier": "relative", // <--- defaults to "shortest"
   "javascript.preferences.importModuleSpecifierEnding": "auto", // <--- defaults to "auto"
   "javascript.updateImportsOnFileMove.enabled": "always", // <--- defaults to "prompt"
   "js/ts.implicitProjectConfig.checkJs": true, // <--- defaults to "false". Either this property, or `checkJs` property within your jsconfig must be set to true for type-checkingto work inside js files.
@@ -169,8 +169,8 @@
   // Part 13: Rules for css files
   // ----------------------------
   "css.lint.unknownProperties": "ignore",
-  "css.lint.unknownAtRules": "ignore",
-  "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode" // <--- i'm using prettier formatter instead of this, but also does an ok job.
-  }
+  "css.lint.unknownAtRules": "ignore"
+  // "[css]": {
+  //   "editor.defaultFormatter": "aeschli.vscode-css-formatter" // <--- i'm using prettier formatter instead of this, but also does an ok job.
+  // },
 }

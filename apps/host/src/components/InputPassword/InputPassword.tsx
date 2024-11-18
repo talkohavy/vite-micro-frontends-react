@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import EyeIcon from '../../utils/svgs/EyeIcon';
-import LockIcon from '../../utils/svgs/LockIcon';
+import EyeIcon from '../svgs/EyeIcon';
+import LockIcon from '../svgs/LockIcon';
 import InputFloat from '../InputFloat';
 import { InputPasswordProps } from '../types';
 
