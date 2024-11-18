@@ -1,6 +1,6 @@
 import { PropsWithChildren, useCallback, useMemo, useState } from 'react';
-import { useLocalStorage } from '../../hooks/useLocalStorage';
-import { LSKEY_THEME } from '../../utils/globalConstants';
+import { useLocalStorage } from '@src/hooks/useLocalStorage';
+import { LS_KEY_THEME } from '@src/common/constants';
 import { DarkThemeContext } from './DarkThemeContext';
 
 export const THEME_OPTIONS = { dark: 'dark', light: 'light' };
@@ -8,7 +8,7 @@ export const THEME_OPTIONS = { dark: 'dark', light: 'light' };
 export default function DarkThemeProvider(props: PropsWithChildren) {
   const { children } = props;
 
-  const { value: localStorageTheme, setValue: setLocalStorageTheme } = useLocalStorage(LSKEY_THEME);
+  const { value: localStorageTheme, setValue: setLocalStorageTheme } = useLocalStorage(LS_KEY_THEME);
 
   // all useStates:
   const [isDarkMode, setIsDarkMode] = useState(() => {

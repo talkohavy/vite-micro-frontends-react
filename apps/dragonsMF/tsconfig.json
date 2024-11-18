@@ -37,8 +37,7 @@
     "typeRoots": ["node_modules/@types"], // Specify multiple folders that act like './node_modules/@types'.
     "paths": {
       "/*": ["src/public/*"],
-      "@src/*": ["src/*"],
-      "*": ["./@mf-types/*"]
+      "@src/*": ["src/*"]
     },
     // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */
     // "types": [],                                      /* Specify type package names to be included without being referenced in a source file. */
