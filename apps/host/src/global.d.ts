@@ -1,4 +1,4 @@
-declare module '@mf-*' {
+declare module 'mf_*' {
   const content: any;
 
   export default content;

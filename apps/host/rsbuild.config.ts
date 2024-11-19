@@ -9,7 +9,7 @@ export default defineConfig({
       name: 'host',
       manifest: true,
       remotes: {
-        '@mf-books': 'mf_books@http://localhost:3001/mf-manifest.json',
+        mf_books: 'mf_books@http://localhost:3001/mf-manifest.json',
       },
       shared: ['react', 'react-dom'],
     }),
