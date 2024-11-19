@@ -2,7 +2,7 @@ import url from 'url';
 import path from 'path';
 import { defineConfig } from 'vite';
 import { federation } from '@module-federation/vite';
-import react from '@vitejs/plugin-react-swc';
+import react from '@vitejs/plugin-react';
 
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -14,7 +14,11 @@ export default defineConfig({
       name: 'host',
       manifest: true,
       remotes: {
-        '@mf-books': 'mf_books@http://localhost:3001/mf-manifest.json',
+        mf_books: {
+          name: 'mf_books',
+          entry: 'http://localhost:3001/mf-manifest.json',
+          type: 'module',
+        },
       },
       shared: ['react', 'react-dom'],
     }),
@@ -30,5 +34,8 @@ export default defineConfig({
     minify: false,
     cssCodeSplit: false,
     sourcemap: true,
+  },
+  server: {
+    open: true,
   },
 });

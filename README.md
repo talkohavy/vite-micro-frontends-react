@@ -1,13 +1,45 @@
-# React - Vite Federation Demo
+# Federation Demo - HMR
 
-This example demos consumption of federated modules from a vite bundle. `host` (react based) depends on a component exposed by `remote` app (react based).
+## HMR works with Rsbuild
 
-## Running
+Navigate to `apps/booksMF`, and run:
 
-Install `pnpm` as per instructions provided [here](https://pnpm.io/installation)
+```bash
+pnpm install
+pnpm rsdev
+```
 
-Run `pnpm install`, then `pnpm run dev` under each app under `apps` folder. This will build and serve both remotes, and run the `host` in development mode.
+Then, navigate to `apps/host`, and run:
 
-- HOST: [localhost:3000](http://localhost:3000/)
-- REMOTE-BOOKS: [localhost:3001](http://localhost:3001/)
-- REMOTE-DRAGONS: [localhost:3002](http://localhost:3002/)
+```bash
+pnpm install
+pnpm rsdev
+```
+
+Now, in your IDE, open file `booksMF/src/components/App/App.tsx`,  
+and change the text of the `h1` from "Vite + React" to whatever, and see that the **HMR worked properly**.
+
+---
+
+## HMR doesn't works with Vite
+
+First, stop the rsbuild of both `host` and `books` servers (if currently running).
+
+Navigate to `apps/booksMF`, and run:
+
+```bash
+pnpm dev
+```
+
+Then, navigate to `apps/host`, and run:
+
+```bash
+pnpm dev
+```
+
+**There's an infinite loop!**
+
+Different Setting:
+
+Now, in your IDE, open file `booksMF/src/components/App/App.tsx`,  
+and change the text of the `h1` from "Vite + React" to whatever, and see that the **HMR doesn't work!**.
