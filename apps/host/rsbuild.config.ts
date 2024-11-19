@@ -17,4 +17,9 @@ export default defineConfig({
   server: {
     port: 3000,
   },
+  source: {
+    entry: {
+      index: './src/index.ts', // <--- defaults to './src/index.{ts|js|...}'
+    },
+  },
 });
