@@ -12,14 +12,9 @@ export default defineConfig({
     react(),
     federation({
       name: 'host',
-      filename: 'remoteEntry.js',
+      manifest: true,
       remotes: {
-        // Note about the key for the object (i.e. '@mf-books'), it can be whatever you want. with this you'll do the import. i.e. '@mf-books/SomeComponent'
-        '@mf-books': {
-          name: '@mf-books', // <--- this needs to match the EXACT name of the remote MF.
-          type: 'module', // <--- IMPORTANT!!! without this you'll get an error. Your remote vite apps are bundled as esm.
-          entry: 'http://localhost:3001/remoteEntry.js',
-        },
+        '@mf-books': 'mf_books@http://localhost:3001/mf-manifest.json',
       },
       shared: ['react', 'react-dom'],
     }),

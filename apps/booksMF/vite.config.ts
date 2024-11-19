@@ -11,8 +11,9 @@ export default defineConfig({
   plugins: [
     react(),
     federation({
-      name: '@mf-books',
-      filename: 'remoteEntry.js',
+      name: 'mf_books',
+      manifest: true,
+      // filename: 'remoteEntry.js',
       exposes: {
         './App': './src/exposes/ExposedBooksMF',
       },
