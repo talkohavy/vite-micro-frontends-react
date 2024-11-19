@@ -24,5 +24,5 @@ export default function useInitMicroFrontend(props: UseInitMicroFrontendProps) {
     init({ name: HOST_NAME, remotes: [{ name: remoteName, entry: remoteEntryUrl, type }] });
 
     initedMicroFrontendsCache.set(mfKey, true);
-  }, [remoteName, remoteEntryUrl]);
+  }, [remoteName, remoteEntryUrl, type]);
 }
