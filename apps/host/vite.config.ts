@@ -24,6 +24,7 @@ export default defineConfig({
       shared: ['react', 'react-dom'],
     }),
   ],
+  clearScreen: false,
   resolve: {
     alias: {
       '@src': path.resolve(__dirname, 'src'),
