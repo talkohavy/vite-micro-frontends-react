@@ -1,22 +1,41 @@
 import url from 'url';
 import path from 'path';
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react-swc';
+import { defineConfig, PluginOption } from 'vite';
+import react from '@vitejs/plugin-react';
 import { federation } from '@module-federation/vite';
 
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+function getSingleReactRefreshPlugin(): PluginOption {
+  return {
+    name: 'single-react-refresh', // Name for the plugin
+    enforce: 'pre', // Run this plugin before other transformations
+    transform(code, id) {
+      if (/\.(js|ts|jsx|tsx)$/.test(id)) {
+        const updatedCode = code.replace(
+          /import RefreshRuntime from "\/@react-refresh";/g,
+          `import RefreshRuntime from "http://localhost:3000/@react-refresh";`,
+        );
+        return updatedCode;
+      }
+      return null; // Return null if no transformation is applied
+    },
+  };
+}
+
 export default defineConfig({
+  base: 'http://localhost:3001',
   plugins: [
     react(),
+    getSingleReactRefreshPlugin(),
     federation({
-      name: '@mf-books',
+      name: 'mf_books',
       filename: 'remoteEntry.js',
       exposes: {
         './App': './src/exposes/ExposedBooksMF',
       },
-      shared: ['react', 'react-dom'],
+      shared: ['react', 'react-dom', 'react-refresh'],
     }),
   ],
   server: {
@@ -31,6 +50,6 @@ export default defineConfig({
     modulePreload: false,
     target: 'esnext',
     minify: false,
-    cssCodeSplit: false,
+    // cssCodeSplit: false,
   },
 });
