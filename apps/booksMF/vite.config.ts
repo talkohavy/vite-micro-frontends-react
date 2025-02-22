@@ -62,4 +62,11 @@ export default defineConfig({
     minify: false,
     cssCodeSplit: false,
   },
+  css: {
+    modules: {
+      generateScopedName: '[name].123.[local].[hash:base64:5]',
+      localsConvention: 'camelCaseOnly',
+    },
+    devSourcemap: true,
+  },
 });

@@ -38,4 +38,11 @@ export default defineConfig({
     // cssCodeSplit: false,
     // sourcemap: true,
   },
+  css: {
+    modules: {
+      generateScopedName: '[name].123.[local].[hash:base64:5]',
+      localsConvention: 'camelCaseOnly',
+    },
+    devSourcemap: true,
+  },
 });
