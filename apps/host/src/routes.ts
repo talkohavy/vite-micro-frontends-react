@@ -1,36 +1,34 @@
 import { lazy } from 'react';
+import RedirectToHome from './pages/RedirectToHome';
+import { BASE_URL } from './common/constants';
+import { Route } from './common/types';
 
-const HomePage = lazy(() => import('./pages/authorized/HomePage'));
-const BooksMF = lazy(() => import('./pages/authorized/BooksMF'));
-const DragonsMF = lazy(() => import('./pages/authorized/DragonsMF'));
-const LoginPage = lazy(() => import('./pages/unauthorized/Login'));
+const HomePage = lazy(() => import('./pages/HomePage'));
+const BooksMF = lazy(() => import('./pages/BooksMF'));
+const DragonsMF = lazy(() => import('./pages/DragonsMF'));
 
-export const authorizedRoutes = [
+export const routes: Array<Route> = [
   {
     to: '/',
+    hideFromSidebar: true,
+    Component: RedirectToHome,
+  } as Route,
+  {
+    to: `${BASE_URL}/`,
     text: 'Home',
     activeNames: ['/home', '/'],
     Component: HomePage,
   },
   {
-    to: '/books',
+    to: `${BASE_URL}/books`,
     text: 'Books',
     activeNames: ['/books'],
     Component: BooksMF,
   },
   {
-    to: '/dragons',
+    to: `${BASE_URL}/dragons`,
     text: 'Dragons',
     activeNames: ['/dragons'],
     Component: DragonsMF,
-  },
-];
-
-export const unauthorizedRoutes = [
-  {
-    to: '/',
-    text: 'login',
-    activeNames: ['/login', '/'],
-    Component: LoginPage,
   },
 ];

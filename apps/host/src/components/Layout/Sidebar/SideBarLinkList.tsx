@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
-import { authorizedRoutes as routesRaw } from '@src/routes';
+import { routes as routesRaw } from '@src/routes';
 import SideBarLinkItem from './SideBarLinkItem';
 
 export default function SideBarLinkList() {
@@ -8,11 +8,13 @@ export default function SideBarLinkList() {
 
   const routes = useMemo(
     () =>
-      routesRaw.map(({ to, text, activeNames }) => ({
-        to,
-        text,
-        isActive: activeNames.some((name) => name === pathname),
-      })),
+      routesRaw
+        .filter((route) => !route.hideFromSidebar)
+        .map(({ to, text, activeNames }) => ({
+          to,
+          text,
+          isActive: activeNames.some((name) => name === pathname),
+        })),
     [pathname],
   );
 
