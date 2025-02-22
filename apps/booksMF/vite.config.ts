@@ -3,6 +3,7 @@ import path from 'path';
 import { defineConfig, PluginOption } from 'vite';
 import react from '@vitejs/plugin-react';
 import { federation } from '@module-federation/vite';
+import svgr from 'vite-plugin-svgr';
 
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -37,6 +38,15 @@ export default defineConfig({
       },
       shared: ['react', 'react-dom', 'react-refresh'],
     }),
+    svgr({
+      include: '**/*.svg',
+      svgrOptions: {
+        exportType: 'named',
+        // ref: true,
+        // svgo: false,
+        // titleProp: true,
+      },
+    }),
   ],
   server: {
     port: 3001,
@@ -50,6 +60,6 @@ export default defineConfig({
     modulePreload: false,
     target: 'esnext',
     minify: false,
-    // cssCodeSplit: false,
+    cssCodeSplit: false,
   },
 });

@@ -1,6 +1,7 @@
-import reactLogo from '../../assets/react.svg';
+import clsx from 'clsx';
+import { ReactComponent as ReactLogo } from '../../assets/react.svg';
 import Button from '../Button';
-import './App.css';
+import styles from './App.module.css';
 
 type AppProps = {
   className?: string;
@@ -16,7 +17,7 @@ export default function App(props: AppProps) {
           <img src='/vite.svg' className='logo' alt='Vite logo' />
         </a>
         <a href='https://reactjs.org' target='_blank'>
-          <img src={reactLogo} className='logo react' alt='React logo' />
+          <ReactLogo className={clsx(styles.logo, styles.react)} />
         </a>
       </div>
       <h1>Vite + React</h1>

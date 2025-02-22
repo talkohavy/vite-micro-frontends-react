@@ -1,0 +1,23 @@
+.sharedBtn {
+  background-color: skyblue;
+  border: 1px solid white;
+  color: white;
+  padding: 15px 30px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+.sharedBtn:hover {
+  border-color: #646cff;
+}
+
+.sharedBtn:focus,
+.sharedBtn:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
