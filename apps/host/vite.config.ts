@@ -8,7 +8,6 @@ const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 export default defineConfig({
-  base: 'http://localhost:3000',
   plugins: [
     react(),
     federation({

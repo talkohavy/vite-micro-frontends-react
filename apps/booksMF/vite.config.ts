@@ -26,7 +26,6 @@ function getSingleReactRefreshPlugin(): PluginOption {
 }
 
 export default defineConfig({
-  base: 'http://localhost:3001',
   plugins: [
     react(),
     getSingleReactRefreshPlugin(),
