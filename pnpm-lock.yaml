@@ -1,0 +1,24 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    devDependencies:
+      open-terminal-programmatically:
+        specifier: ^1.0.2
+        version: 1.0.2
+
+packages:
+
+  open-terminal-programmatically@1.0.2:
+    resolution: {integrity: sha512-Pu7hlafZuDOhczj0Ehk0bKzVmNovj7/LPvhhL0hUHOD6PcDBW7gGWMj3S9WQNnvTenBT72XHMSMUWgXdxYex9w==}
+
+snapshots:
+
+  open-terminal-programmatically@1.0.2:
+    dependencies:
+      open-terminal-programmatically: 'link:'
