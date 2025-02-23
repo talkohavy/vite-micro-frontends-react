@@ -1,7 +1,7 @@
 import { lazy, LazyExoticComponent, useEffect, useState } from 'react';
+import { FederatedModule } from '../../types';
 import { componentsCache } from '../constants';
 import { loadComponent } from '../utils/loadComponent';
-import { FederatedModule } from '../../types';
 
 type useLoadedComponentProps = {
   remoteName: string;

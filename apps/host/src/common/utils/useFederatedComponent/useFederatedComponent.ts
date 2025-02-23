@@ -1,7 +1,7 @@
 import { RemoteBundleType } from './logic/constants';
-import useSanityCheck from './logic/hooks/useSanityCheck';
 import useInitMicroFrontend from './logic/hooks/useInitMicroFrontend';
 import useLoadedComponent from './logic/hooks/useLoadedComponent';
+import useSanityCheck from './logic/hooks/useSanityCheck';
 
 type UseFederatedComponentProps = {
   remoteName: string;

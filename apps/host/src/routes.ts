@@ -1,7 +1,7 @@
 import { lazy } from 'react';
-import RedirectToHome from './pages/RedirectToHome';
 import { BASE_URL } from './common/constants';
 import { Route } from './common/types';
+import RedirectToHome from './pages/RedirectToHome';
 
 const HomePage = lazy(() => import('./pages/HomePage'));
 const BooksMF = lazy(() => import('./pages/BooksMF'));
