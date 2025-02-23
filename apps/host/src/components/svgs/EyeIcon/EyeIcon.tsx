@@ -1,4 +1,5 @@
-import { twMerge } from 'tailwind-merge';
+import clsx from 'clsx';
+import styles from './EyeIcon.module.scss';
 
 type EyeIconProps = {
   size?: number;
@@ -15,7 +16,7 @@ export default function EyeIcon(props: EyeIconProps) {
       viewBox='0 0 100 100'
       focusable='false'
       aria-hidden='true'
-      className={twMerge('stroke-current fill-current stroke-6', className)}
+      className={clsx(styles.eyeIcon, className)}
       xmlns='http://www.w3.org/2000/svg'
     >
       <title>eye icon</title>
