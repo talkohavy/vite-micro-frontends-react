@@ -1,4 +1,5 @@
 import Button from '../Button';
+import styles from './App.module.scss';
 
 type AppProps = {
   className?: string;
@@ -9,7 +10,7 @@ export default function App(props: AppProps) {
 
   return (
     <div className={className}>
-      <div className='p-4 border rounded-md text-2xl'>I am a Dragon</div>
+      <div className={styles.dragon}>I am a Dragon</div>
 
       <Button />
     </div>
