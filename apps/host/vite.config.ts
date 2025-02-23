@@ -13,12 +13,7 @@ export default defineConfig({
     react(),
     svgr({
       include: '**/*.svg',
-      svgrOptions: {
-        exportType: 'named',
-        // ref: true,
-        // svgo: false,
-        // titleProp: true,
-      },
+      svgrOptions: { exportType: 'named' },
     }),
     federation({
       name: 'host',
@@ -34,6 +29,11 @@ export default defineConfig({
       shared: ['react', 'react-dom', 'react-refresh'],
     }),
   ],
+  server: {
+    port: 3000,
+    open: true,
+    strictPort: true,
+  },
   clearScreen: false,
   resolve: {
     alias: {
@@ -44,12 +44,10 @@ export default defineConfig({
     modulePreload: false,
     target: 'esnext', // <--- or 'chrome89' , just as long as you have top-level-await in the runtime environment it's fine.
     minify: false,
-    // cssCodeSplit: false,
-    // sourcemap: true,
   },
   css: {
     modules: {
-      generateScopedName: '[name].123.[local].[hash:base64:5]',
+      generateScopedName: '[name].[local].[hash:base64:5]',
       localsConvention: 'camelCaseOnly',
     },
     devSourcemap: true,

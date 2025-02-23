@@ -41,9 +41,10 @@ export default defineConfig({
       include: '**/*.svg',
       svgrOptions: { exportType: 'named' },
     }),
-  ],
+  ] as PluginOption[],
   server: {
     port: 3001,
+    strictPort: true,
   },
   resolve: {
     alias: {
