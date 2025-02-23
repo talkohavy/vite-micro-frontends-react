@@ -1,30 +1,3 @@
-/**
- * This injects Tailwind's base styles and any base styles registered by
- * plugins.
- */
-@tailwind base;
-
-/**
-  * This injects Tailwind's component classes and any component classes
-  * registered by plugins.
-  */
-@tailwind components;
-
-/**
-  * This injects Tailwind's utility classes and any utility classes registered
-  * by plugins.
-  */
-@tailwind utilities;
-
-/**
-  * Use this directive to control where Tailwind injects the hover, focus,
-  * responsive, dark mode, and other variants of each class.
-  *
-  * If omitted, Tailwind will append these classes to the very end of
-  * your stylesheet by default.
-  */
-/* @tailwind variants; */
-
 * {
   margin: 0;
   padding: 0;
@@ -62,93 +35,87 @@
   alignment-baseline: middle;
 }
 
-@layer base {
-  html {
-    @apply h-full;
-  }
-
-  body {
-    @apply relative;
-    @apply flex;
-    @apply flex-col;
-    @apply items-center;
-    @apply justify-center;
-    @apply w-full;
-    @apply h-full;
-    @apply text-sm;
-    /* overflow: hidden; */
-  }
-
-  #root {
-    @apply h-full;
-    @apply w-full;
-  }
-
-  /* width */
-  body::-webkit-scrollbar {
-    width: 12px;
-    opacity: 0.5;
-    overflow-x: hidden;
-  }
-
-  /* Track */
-  body::-webkit-scrollbar-track {
-    background: transparent;
-    border-radius: 5px;
-    /*box-shadow: inset 0 0 5px grey;*/
-    opacity: 0.5;
-  }
-
-  /* Handle */
-  body::-webkit-scrollbar-thumb {
-    background: rgba(255, 93, 223, 0.2);
-    border-radius: 5px;
-  }
-
-  /* Handle on hover */
-  body::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 41, 41, 0.5);
-  }
+html {
+  @apply h-full;
 }
 
-@layer utilities {
-  .no-scrollbar {
-    /* IE and Edge */
-    -ms-overflow-style: none !important;
+body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
 
-    /* Firefox */
-    scrollbar-width: none !important;
-  }
+#root {
+  width: 100%;
+  height: 100%;
+}
 
-  /* Chrome Safari and Opera */
-  .no-scrollbar::-webkit-scrollbar {
-    display: none !important;
-  }
+/* width */
+body::-webkit-scrollbar {
+  width: 12px;
+  opacity: 0.5;
+  overflow-x: hidden;
+}
 
-  /* width */
-  .scrollbar-thin::-webkit-scrollbar {
-    width: 4px;
-    opacity: 0.5;
-    overflow-x: hidden;
-  }
+/* Track */
+body::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 5px;
+  /*box-shadow: inset 0 0 5px grey;*/
+  opacity: 0.5;
+}
 
-  /* Track */
-  .scrollbar-thin::-webkit-scrollbar-track {
-    background: transparent;
-    border-radius: 5px;
-    /*box-shadow: inset 0 0 5px grey;*/
-    opacity: 0.5;
-  }
+/* Handle */
+body::-webkit-scrollbar-thumb {
+  background: rgba(255, 93, 223, 0.2);
+  border-radius: 5px;
+}
 
-  /* Handle */
-  .scrollbar-thin::-webkit-scrollbar-thumb {
-    background: rgba(161, 161, 255, 0.5);
-    border-radius: 5px;
-    opacity: 0.5;
-  }
+/* Handle on hover */
+body::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 41, 41, 0.5);
+}
 
-  .text-security-disc {
-    -webkit-text-security: disc;
-    text-security: disc;
-  }
+.no-scrollbar {
+  /* IE and Edge */
+  -ms-overflow-style: none !important;
+
+  /* Firefox */
+  scrollbar-width: none !important;
+}
+
+/* Chrome Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+}
+
+/* width */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 4px;
+  opacity: 0.5;
+  overflow-x: hidden;
+}
+
+/* Track */
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 5px;
+  /*box-shadow: inset 0 0 5px grey;*/
+  opacity: 0.5;
+}
+
+/* Handle */
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: rgba(161, 161, 255, 0.5);
+  border-radius: 5px;
+  opacity: 0.5;
+}
+
+.text-security-disc {
+  -webkit-text-security: disc;
+  text-security: disc;
 }
