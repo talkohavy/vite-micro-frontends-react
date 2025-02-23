@@ -6,6 +6,14 @@ import { openTerminal } from "open-terminal-programmatically";
 const terminalsArr = [
   {
     config: {
+      name: "DragonsMF",
+      command: "cd apps/dragonsMF && npm run dev",
+      color: "blue",
+      autoFocus: true,
+    },
+  },
+  {
+    config: {
       name: "BooksMF",
       command: "cd apps/booksMF && npm run dev",
       color: "blue",
@@ -16,8 +24,8 @@ const terminalsArr = [
     config: {
       name: "Host",
       command: "cd apps/host && npm run dev",
-      color: "red",
-      autoFocus: false,
+      color: "green",
+      autoFocus: true,
     },
   },
 ];
