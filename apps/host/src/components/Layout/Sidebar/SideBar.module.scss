@@ -3,6 +3,8 @@
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
+  height: 100%;
+  width: 16px;
   padding: 40px;
   background-color: yellow;
   box-shadow:
@@ -12,7 +14,6 @@
     1px rgba(0, 0, 0, 0.2);
   transition: all;
   transition-duration: 300ms;
-  width: 16px;
 }
 
 .sidebarOpen {

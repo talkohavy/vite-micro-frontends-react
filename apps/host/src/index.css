@@ -36,7 +36,7 @@
 }
 
 html {
-  @apply h-full;
+  height: 100%;
 }
 
 body {
