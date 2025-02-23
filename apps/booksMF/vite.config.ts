@@ -39,12 +39,7 @@ export default defineConfig({
     }),
     svgr({
       include: '**/*.svg',
-      svgrOptions: {
-        exportType: 'named',
-        // ref: true,
-        // svgo: false,
-        // titleProp: true,
-      },
+      svgrOptions: { exportType: 'named' },
     }),
   ],
   server: {
@@ -63,7 +58,7 @@ export default defineConfig({
   },
   css: {
     modules: {
-      generateScopedName: '[name].123.[local].[hash:base64:5]',
+      generateScopedName: '[name].[local].[hash:base64:5]',
       localsConvention: 'camelCaseOnly',
     },
     devSourcemap: true,

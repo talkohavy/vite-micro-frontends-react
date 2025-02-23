@@ -1,7 +1,7 @@
 import url from 'url';
 import path from 'path';
 import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react-swc';
+import react from '@vitejs/plugin-react';
 import { federation } from '@module-federation/vite';
 
 const __filename = url.fileURLToPath(import.meta.url);
@@ -11,12 +11,12 @@ export default defineConfig({
   plugins: [
     react(),
     federation({
-      name: '@mf-dragons',
+      name: 'mf_dragons',
       filename: 'remoteEntry.js',
       exposes: {
         './App': './src/exposes/ExposedDragonsMF',
       },
-      shared: ['react', 'react-dom'],
+      shared: ['react', 'react-dom', 'react-refresh'],
     }),
   ],
   server: {
@@ -32,5 +32,12 @@ export default defineConfig({
     target: 'esnext',
     minify: false,
     cssCodeSplit: false,
+  },
+  css: {
+    modules: {
+      generateScopedName: '[name].[local].[hash:base64:5]',
+      localsConvention: 'camelCaseOnly',
+    },
+    devSourcemap: true,
   },
 });
