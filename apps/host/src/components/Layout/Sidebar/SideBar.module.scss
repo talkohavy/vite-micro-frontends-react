@@ -1,0 +1,46 @@
+.sidebar {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 40px;
+  background-color: yellow;
+  box-shadow:
+    1px,
+    1px,
+    1px,
+    1px rgba(0, 0, 0, 0.2);
+  transition: all;
+  transition-duration: 300ms;
+  width: 16px;
+}
+
+.sidebarOpen {
+  width: 320px;
+}
+
+.sidebarButton {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 32px;
+  height: 32px;
+  transform: translateX(50%);
+  border-radius: 9999px;
+  background-color: blue;
+  padding: 8px;
+  opacity: 0.2;
+}
+
+.sidebarButton:hover {
+  opacity: 1;
+}
+
+.arrowIcon {
+  stroke: black;
+  transform: rotateY(270);
+}
+
+.arrowIconDown {
+  transform: rotateY(90);
+}

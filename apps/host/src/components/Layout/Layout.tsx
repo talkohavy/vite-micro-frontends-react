@@ -1,8 +1,8 @@
 import { PropsWithChildren } from 'react';
 import Header from './Header';
+import styles from './Layout.module.scss';
 import Main from './Main';
 import Sidebar from './Sidebar';
-import styles from './Layout.module.scss';
 
 type LayoutProps = PropsWithChildren;
 

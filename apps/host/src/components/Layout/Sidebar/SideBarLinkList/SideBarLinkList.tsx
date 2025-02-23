@@ -1,7 +1,8 @@
 import { useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 import { routes as routesRaw } from '@src/routes';
-import SideBarLinkItem from './SideBarLinkItem';
+import SideBarLinkItem from '../SideBarLinkItem';
+import styles from './SideBarLinkList.module.scss';
 
 export default function SideBarLinkList() {
   const { pathname } = useLocation();
@@ -19,7 +20,7 @@ export default function SideBarLinkList() {
   );
 
   return (
-    <div className='flex animate-appear flex-col items-start justify-start text-sm font-thin'>
+    <div className={styles.sideBarLinkList}>
       {routes.map(({ to, text, isActive }) => (
         <SideBarLinkItem key={text} to={to} text={text} isActive={isActive} />
       ))}

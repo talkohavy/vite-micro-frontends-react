@@ -1,5 +1,6 @@
-import clsx from 'clsx';
 import { Link } from 'react-router-dom';
+import clsx from 'clsx';
+import styles from './SideBarLinkItem.module.scss';
 
 type SideBarLinkItemProps = {
   to: string;
@@ -11,10 +12,7 @@ export default function SideBarLinkItem(props: SideBarLinkItemProps) {
   const { to, text, isActive } = props;
 
   return (
-    <Link
-      to={to}
-      className={clsx('inline-block text-lg hover:text-red-500 active:text-red-400', isActive && 'font-bold')}
-    >
+    <Link to={to} className={clsx(styles.sideBarLinkItem, isActive && styles.isActive)}>
       {text}
     </Link>
   );
