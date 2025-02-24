@@ -10,6 +10,8 @@ import DarkThemeProvider from './providers/DarkThemeProvider';
 import { createStore } from './store';
 import { State } from './store';
 import './index.css';
+import './common/styles/lightTheme.css';
+import './common/styles/darkTheme.css';
 
 // const isLogged = !!localStorage.getItem('isLogged');
 const isLogged = true;
