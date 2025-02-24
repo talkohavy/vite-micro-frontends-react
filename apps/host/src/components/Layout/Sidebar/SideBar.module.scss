@@ -27,8 +27,9 @@
   width: 32px;
   height: 32px;
   transform: translateX(50%);
+  border: none;
   border-radius: 9999px;
-  background-color: blue;
+  background-color: #51a2ff;
   padding: 8px;
   opacity: 0.2;
 }
@@ -39,9 +40,9 @@
 
 .arrowIcon {
   stroke: black;
-  transform: rotateY(270);
+  transform: rotateZ(270deg);
 }
 
 .arrowIconDown {
-  transform: rotateY(90);
+  transform: rotateZ(90deg);
 }
