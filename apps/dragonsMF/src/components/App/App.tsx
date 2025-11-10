@@ -11,7 +11,7 @@ export default function App(props: AppProps) {
 
   return (
     <div className={clsx(styles.app, className)}>
-      <div className={styles.dragon}>I am a Dragon12</div>
+      <div className={styles.dragon}>I am a Dragon</div>
 
       <Button />
     </div>
