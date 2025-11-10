@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
-import { init } from '@module-federation/enhanced/runtime';
-import { HOST_NAME } from '@src/common/constants';
+import { registerRemotes } from '@module-federation/enhanced/runtime';
 import { initedMicroFrontendsCache, RemoteBundleType } from '../constants';
 
 type UseInitMicroFrontendProps = {
@@ -21,7 +20,9 @@ export default function useInitMicroFrontend(props: UseInitMicroFrontendProps) {
 
     if (wasMicroFrontendAlreadyInited) return;
 
-    init({ name: HOST_NAME, remotes: [{ name: remoteName, entry: remoteEntryUrl, type }] });
+    const remotes = [{ name: remoteName, entry: remoteEntryUrl, type }];
+
+    registerRemotes(remotes);
 
     initedMicroFrontendsCache.set(mfKey, true);
   }, [remoteName, remoteEntryUrl, type]);
