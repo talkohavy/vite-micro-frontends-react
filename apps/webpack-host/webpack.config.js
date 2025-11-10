@@ -1,6 +1,6 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { ModuleFederationPlugin } = require('@module-federation/enhanced/webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
 
 module.exports = (env, argv) => {
   const isDevelopment = argv.mode === 'development';
@@ -34,9 +34,24 @@ module.exports = (env, argv) => {
             },
           },
         },
+        // CSS Modules MUST come BEFORE plain CSS/SCSS
         {
-          test: /\.css$/,
-          use: ['style-loader', 'css-loader', 'postcss-loader'],
+          test: /\.module\.css$/,
+          use: [
+            'style-loader',
+            {
+              loader: 'css-loader',
+              options: {
+                esModule: false,
+                modules: {
+                  localIdentName: '[name].[local].[hash:base64:5]',
+                  exportLocalsConvention: 'camelCaseOnly',
+                },
+                importLoaders: 1,
+              },
+            },
+            'postcss-loader',
+          ],
         },
         {
           test: /\.module\.(scss|sass)$/,
@@ -45,6 +60,7 @@ module.exports = (env, argv) => {
             {
               loader: 'css-loader',
               options: {
+                esModule: false,
                 modules: {
                   localIdentName: '[name].[local].[hash:base64:5]',
                   exportLocalsConvention: 'camelCaseOnly',
@@ -56,22 +72,11 @@ module.exports = (env, argv) => {
             'sass-loader',
           ],
         },
+        // Plain CSS/SCSS come AFTER and must exclude modules
         {
-          test: /\.module\.css$/,
-          use: [
-            'style-loader',
-            {
-              loader: 'css-loader',
-              options: {
-                modules: {
-                  localIdentName: '[name].[local].[hash:base64:5]',
-                  exportLocalsConvention: 'camelCaseOnly',
-                },
-                importLoaders: 1,
-              },
-            },
-            'postcss-loader',
-          ],
+          test: /\.css$/,
+          exclude: /\.module\.css$/,
+          use: ['style-loader', 'css-loader', 'postcss-loader'],
         },
         {
           test: /\.(scss|sass)$/,
@@ -100,17 +105,13 @@ module.exports = (env, argv) => {
       new ModuleFederationPlugin({
         name: 'host',
         filename: 'remoteEntry.js',
-        remotes: {
-          mf_books: 'mf_books@http://localhost:3001/remoteEntry.js',
-        },
+        remotes: {}, // <--- Empty! useFederatedComponent registers remotes dynamically via runtime
         shared: {
           react: {
             singleton: true,
-            requiredVersion: '^19.2.0',
           },
           'react-dom': {
             singleton: true,
-            requiredVersion: '^19.2.0',
           },
         },
       }),
@@ -151,4 +152,3 @@ module.exports = (env, argv) => {
     },
   };
 };
-
