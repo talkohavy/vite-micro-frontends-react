@@ -6,6 +6,7 @@ import RedirectToHome from './pages/RedirectToHome';
 const HomePage = lazy(() => import('./pages/HomePage'));
 const BooksMF = lazy(() => import('./pages/BooksMF'));
 const DragonsMF = lazy(() => import('./pages/DragonsMF'));
+const WebpackMF = lazy(() => import('./pages/WebpackMF'));
 
 export const routes: Array<Route> = [
   {
@@ -30,5 +31,11 @@ export const routes: Array<Route> = [
     text: 'Dragons',
     activeNames: ['/dragons'],
     Component: DragonsMF,
+  },
+  {
+    to: `${BASE_URL}/webpack`,
+    text: 'Webpack MF',
+    activeNames: ['/webpack'],
+    Component: WebpackMF,
   },
 ];

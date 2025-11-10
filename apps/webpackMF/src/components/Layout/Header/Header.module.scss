@@ -1,0 +1,16 @@
+.header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+  padding: 0 12px;
+  height: 60px;
+  width: 100%;
+  background-color: var(--header);
+  box-shadow:
+    1px,
+    1px,
+    1px,
+    1px rgba(0, 0, 0, 0.2);
+}

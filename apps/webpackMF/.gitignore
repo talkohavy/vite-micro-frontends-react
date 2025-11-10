@@ -1,0 +1,9 @@
+node_modules
+.DS_Store
+.env*
+_ignore_
+dist/
+.turbo
+jsconfig.tsbuildinfo
+.__mf__temp
+
