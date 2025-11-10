@@ -10,7 +10,7 @@ export default function App(props: AppProps) {
 
   return (
     <div className={className}>
-      <div className={styles.dragon}>I am a Dragon</div>
+      <div className={styles.dragon}>I am a Dragon234</div>
 
       <Button />
     </div>
