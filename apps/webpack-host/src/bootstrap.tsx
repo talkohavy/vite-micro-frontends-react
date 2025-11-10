@@ -48,4 +48,3 @@ root.render(<Client />);
 
 window.addEventListener('error', ({ error }) => ReactErrorOverlay(error));
 window.addEventListener('unhandledrejection', ({ reason }) => ReactErrorOverlay(reason));
-
