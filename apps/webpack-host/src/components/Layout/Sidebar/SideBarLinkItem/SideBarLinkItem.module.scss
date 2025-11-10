@@ -1,0 +1,16 @@
+.sideBarLinkItem {
+  display: inline-block;
+  font-size: 1.5rem;
+}
+
+.sideBarLinkItem:hover {
+  color: red;
+}
+
+.sideBarLinkItem:active {
+  color: lightcoral;
+}
+
+.isActive {
+  font-weight: bold;
+}
