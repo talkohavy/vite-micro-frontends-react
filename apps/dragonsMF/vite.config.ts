@@ -9,6 +9,7 @@ const __dirname = path.dirname(__filename);
 
 export default defineConfig({
   plugins: [
+    // For a webpack host, you'll need to comment out the line below:
     react({ reactRefreshHost: 'http://localhost:3000' }),
     federation({
       name: 'mf_dragons',
