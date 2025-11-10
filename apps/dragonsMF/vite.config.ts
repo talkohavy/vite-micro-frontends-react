@@ -9,7 +9,7 @@ const __dirname = path.dirname(__filename);
 
 export default defineConfig({
   plugins: [
-    react(),
+    react({ reactRefreshHost: 'http://localhost:3000' }),
     federation({
       name: 'mf_dragons',
       filename: 'remoteEntry.js',

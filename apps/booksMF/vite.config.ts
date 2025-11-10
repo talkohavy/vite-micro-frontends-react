@@ -8,27 +8,9 @@ import svgr from 'vite-plugin-svgr';
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-function getSingleReactRefreshPlugin(): PluginOption {
-  return {
-    name: 'single-react-refresh', // Name for the plugin
-    enforce: 'pre', // Run this plugin before other transformations
-    transform(code, id) {
-      if (/\.(js|ts|jsx|tsx)$/.test(id)) {
-        const updatedCode = code.replace(
-          /import RefreshRuntime from "\/@react-refresh";/g,
-          `import RefreshRuntime from "http://localhost:3000/@react-refresh";`,
-        );
-        return updatedCode;
-      }
-      return null; // Return null if no transformation is applied
-    },
-  };
-}
-
 export default defineConfig({
   plugins: [
-    react(),
-    getSingleReactRefreshPlugin(),
+    react({ reactRefreshHost: 'http://localhost:3000' }),
     federation({
       name: 'mf_books',
       filename: 'remoteEntry.js',
