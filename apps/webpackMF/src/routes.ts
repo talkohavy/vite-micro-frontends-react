@@ -4,8 +4,6 @@ import { Route } from './common/types';
 import RedirectToHome from './pages/RedirectToHome';
 
 const HomePage = lazy(() => import('./pages/HomePage'));
-const BooksMF = lazy(() => import('./pages/BooksMF'));
-const DragonsMF = lazy(() => import('./pages/DragonsMF'));
 
 export const routes: Array<Route> = [
   {
@@ -18,17 +16,5 @@ export const routes: Array<Route> = [
     text: 'Home',
     activeNames: ['/home', '/'],
     Component: HomePage,
-  },
-  {
-    to: `${BASE_URL}/books`,
-    text: 'Books',
-    activeNames: ['/books'],
-    Component: BooksMF,
-  },
-  {
-    to: `${BASE_URL}/dragons`,
-    text: 'Dragons',
-    activeNames: ['/dragons'],
-    Component: DragonsMF,
   },
 ];
