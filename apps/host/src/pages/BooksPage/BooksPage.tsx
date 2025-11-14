@@ -1,13 +1,13 @@
 import { lazy, Suspense } from 'react';
 import MicroFrontendErrorBoundary from '@src/components/ErrorBoundaries/MicroFrontendErrorBoundary';
 
-const FruitsMF = lazy(() => import('@mf/fruits/App'));
+const BooksMF = lazy(() => import('@mf/books/App'));
 
-export default function FruitsMFPage() {
+export default function BooksPage() {
   return (
     <MicroFrontendErrorBoundary>
       <Suspense fallback={<div>loading...</div>}>
-        <FruitsMF />
+        <BooksMF />
       </Suspense>
     </MicroFrontendErrorBoundary>
   );

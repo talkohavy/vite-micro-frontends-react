@@ -4,11 +4,11 @@ import { Route } from './common/types';
 import RedirectToHome from './pages/RedirectToHome';
 
 const HomePage = lazy(() => import('./pages/HomePage'));
-const BooksMF = lazy(() => import('./pages/BooksMF'));
-const FruitsMF = lazy(() => import('./pages/FruitsMF'));
-const DragonsMF = lazy(() => import('./pages/DragonsMF'));
+const BooksPage = lazy(() => import('./pages/BooksPage'));
+const FruitsPage = lazy(() => import('./pages/FruitsPage'));
+const DragonsPage = lazy(() => import('./pages/DragonsPage'));
 const WebpackMF = lazy(() => import('./pages/WebpackMF'));
-const MultipleMFs = lazy(() => import('./pages/MultipleMFs'));
+const MultipleMFsPage = lazy(() => import('./pages/MultipleMFsPage'));
 
 export const routes: Array<Route> = [
   {
@@ -26,19 +26,19 @@ export const routes: Array<Route> = [
     to: `${BASE_URL}/books`,
     text: 'Books',
     activeNames: ['/books'],
-    Component: BooksMF,
+    Component: BooksPage,
   },
   {
     to: `${BASE_URL}/fruits`,
     text: 'Fruits',
     activeNames: ['/fruits'],
-    Component: FruitsMF,
+    Component: FruitsPage,
   },
   {
     to: `${BASE_URL}/dragons`,
     text: 'Dragons',
     activeNames: ['/dragons'],
-    Component: DragonsMF,
+    Component: DragonsPage,
   },
   {
     to: `${BASE_URL}/webpack`,
@@ -50,6 +50,6 @@ export const routes: Array<Route> = [
     to: `${BASE_URL}/multiple`,
     text: 'Multiple MF',
     activeNames: ['/multiple'],
-    Component: MultipleMFs,
+    Component: MultipleMFsPage,
   },
 ];
