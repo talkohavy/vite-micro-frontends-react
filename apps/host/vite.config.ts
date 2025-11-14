@@ -18,6 +18,7 @@ export default defineConfig({
     federation({
       name: 'host',
       filename: 'remoteEntry.js',
+      manifest: true,
       remotes: {
         // Note about the key for the object (i.e. '@mf-books'), it can be whatever you want. with this you'll do the import. i.e. '@mf-books/SomeComponent'
         mf_books: {

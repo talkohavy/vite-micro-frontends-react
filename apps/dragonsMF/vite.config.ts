@@ -14,6 +14,7 @@ export default defineConfig({
     federation({
       name: 'mf_dragons',
       filename: 'remoteEntry.js',
+      manifest: true,
       exposes: {
         './App': './src/exposes/ExposedDragonsMF',
       },
