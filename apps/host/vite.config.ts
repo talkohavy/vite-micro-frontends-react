@@ -24,7 +24,7 @@ export default defineConfig({
         '@mf/books': {
           name: '@mf/books', // <--- this needs to match the EXACT name of the remote MF.
           type: 'module', // <--- IMPORTANT!!! without this you'll get an error. Your remote vite apps are bundled as esm.
-          entry: 'http://localhost:3001/mf-manifest.json',
+          entry: 'http://localhost:3001/mf-manifest.json', // <--- try switching between mf-manifest.json and remoteEntry.js. Both should work when the remote vite.config set the origin correctly. When origin isn't set, only remoteEntry.js will work. Only with mf-manifest.json the dev-tool extension will work.
         },
         '@mf/fruits': {
           name: '@mf/fruits', // <--- this needs to match the EXACT name of the remote MF.
