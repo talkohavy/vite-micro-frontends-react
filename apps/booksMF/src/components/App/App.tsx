@@ -12,7 +12,7 @@ export default function App() {
         <ReactLogo className={clsx(styles.logo, styles.react)} />
       </div>
 
-      <h1 className={styles.title}>Vite + React</h1>
+      <h1 className={styles.title}>One Book a day!</h1>
 
       <div className={styles.card}>
         <Button />
