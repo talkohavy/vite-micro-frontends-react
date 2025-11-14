@@ -105,6 +105,7 @@ module.exports = (env, argv) => {
       new ModuleFederationPlugin({
         name: 'mf_webpack',
         filename: 'remoteEntry.js',
+        manifest: true,
         exposes: {
           './App': './src/exposes/ExposedWebpackMF',
         },
