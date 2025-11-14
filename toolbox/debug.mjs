@@ -22,6 +22,14 @@ const terminalsArr = [
   },
   {
     config: {
+      name: "WebpackMF",
+      command: "cd apps/webpackMF && npm run dev",
+      color: "red",
+      autoFocus: true,
+    },
+  },
+  {
+    config: {
       name: "Host",
       command: "cd apps/host && npm run dev",
       color: "green",
