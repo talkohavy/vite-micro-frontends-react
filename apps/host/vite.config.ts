@@ -24,7 +24,12 @@ export default defineConfig({
         '@mf/books': {
           name: '@mf/books', // <--- this needs to match the EXACT name of the remote MF.
           type: 'module', // <--- IMPORTANT!!! without this you'll get an error. Your remote vite apps are bundled as esm.
-          entry: 'http://localhost:3001/remoteEntry.js',
+          entry: 'http://localhost:3001/mf-manifest.json',
+        },
+        '@mf/fruits': {
+          name: '@mf/fruits', // <--- this needs to match the EXACT name of the remote MF.
+          type: 'module', // <--- IMPORTANT!!! without this you'll get an error. Your remote vite apps are bundled as esm.
+          entry: 'http://localhost:3004/mf-manifest.json',
         },
       },
       shared: ['react', 'react-dom', 'react-refresh'],
