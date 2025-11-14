@@ -1,1 +1,0 @@
-export { useFederatedComponent } from './useFederatedComponent';
