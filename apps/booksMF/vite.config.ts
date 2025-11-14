@@ -29,7 +29,7 @@ export default defineConfig({
   server: {
     port: 3001,
     strictPort: true,
-    origin: 'http://localhost:3001', // <--- without this, the mf-manifest.json doesn't work!
+    origin: 'http://localhost:3001', // <--- Defines the origin of the generated asset URLs during development. Without this, the mf-manifest.json doesn't work!
   },
   // base: 'http://localhost:3001',
   resolve: {
