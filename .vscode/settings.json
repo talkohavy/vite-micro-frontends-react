@@ -108,7 +108,7 @@
   "terminal.integrated.enablePersistentSessions": false, // defaults to "true".
   "terminal.integrated.persistentSessionReviveProcess": "never", // defaults to "onExit".
   "terminal.integrated.mouseWheelZoom": false, // <--- default to false.
-  "terminal.integrated.fontSize": 18, // <--- defaults to 12.
+  "terminal.integrated.fontSize": 14, // <--- defaults to 12.
   // "terminal.integrated.cursorBlinking": false, // <--- defaults to "false".
   // "terminal.integrated.wordSeparators": " ()[]{}',\"`─‘’|", // defaults to  ()[]{}',\"`─‘’|
   // "terminal.integrated.scrollback": 1000, // <--- defaults to 1000 lines backwards
