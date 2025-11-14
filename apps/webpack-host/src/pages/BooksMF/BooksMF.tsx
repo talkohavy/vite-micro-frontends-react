@@ -5,7 +5,7 @@ import MicroFrontendErrorBoundary from '@src/components/ErrorBoundaries/MicroFro
 
 export default function BooksMF() {
   const { Component } = useFederatedComponent({
-    remoteName: 'mf_books',
+    remoteName: '@mf/books',
     moduleName: 'App',
     remoteEntryUrl: 'http://localhost:3001/remoteEntry.js',
     type: RemoteBundleType.Module,

@@ -33,7 +33,7 @@ The app is configured to consume remote micro-frontends:
 
 ```javascript
 remotes: {
-  mf_books: 'mf_books@http://localhost:3001/remoteEntry.js',
+  '@mf/books': '@mf/books@http://localhost:3001/remoteEntry.js',
 }
 ```
 
@@ -49,7 +49,7 @@ import { RemoteBundleType } from '@src/common/utils/useFederatedComponent/logic/
 
 function MyPage() {
   const { Component } = useFederatedComponent({
-    remoteName: 'mf_books',
+    remoteName: '@mf/books',
     remoteEntryUrl: 'http://localhost:3001/remoteEntry.js',
     moduleName: './ExposedBooksMF',
     type: RemoteBundleType.Module,
@@ -93,6 +93,7 @@ Everything else, including the source code, useFederatedComponent implementation
 ## TypeScript Configuration
 
 The TypeScript configuration uses:
+
 - Module: ESNext
 - Module Resolution: Bundler
 - Target: ES2020
@@ -102,4 +103,3 @@ The TypeScript configuration uses:
 
 - Development Server: `http://localhost:3000`
 - Expects remote apps on: `http://localhost:3001` (books), etc.
-
