@@ -8,6 +8,7 @@ const BooksMF = lazy(() => import('./pages/BooksMF'));
 const FruitsMF = lazy(() => import('./pages/FruitsMF'));
 const DragonsMF = lazy(() => import('./pages/DragonsMF'));
 const WebpackMF = lazy(() => import('./pages/WebpackMF'));
+const MultipleMFs = lazy(() => import('./pages/MultipleMFs'));
 
 export const routes: Array<Route> = [
   {
@@ -44,5 +45,11 @@ export const routes: Array<Route> = [
     text: 'Webpack MF',
     activeNames: ['/webpack'],
     Component: WebpackMF,
+  },
+  {
+    to: `${BASE_URL}/multiple`,
+    text: 'Multiple MF',
+    activeNames: ['/multiple'],
+    Component: MultipleMFs,
   },
 ];
