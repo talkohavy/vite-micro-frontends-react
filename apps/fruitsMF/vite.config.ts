@@ -29,9 +29,9 @@ export default defineConfig({
   server: {
     port: 3004,
     strictPort: true,
-    origin: 'http://localhost:3004',
+    origin: 'http://localhost:3004', // <--- without this, the mf-manifest.json doesn't work!
   },
-  base: 'http://localhost:3004',
+  // base: 'http://localhost:3004',
   resolve: {
     alias: {
       '@src': path.resolve(__dirname, 'src'),
