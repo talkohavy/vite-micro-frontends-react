@@ -2,7 +2,7 @@ import { federation } from '@module-federation/vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 import url from 'url';
-import { defineConfig } from 'vite';
+import { defineConfig, PluginOption } from 'vite';
 import svgr from 'vite-plugin-svgr';
 
 const __filename = url.fileURLToPath(import.meta.url);
@@ -28,8 +28,9 @@ export default defineConfig({
         },
       },
       shared: ['react', 'react-dom', 'react-refresh'],
+      runtimePlugins: ['./src/mfPlugins'],
     }),
-  ],
+  ] as PluginOption[],
   server: {
     port: 3000,
     // open: true,

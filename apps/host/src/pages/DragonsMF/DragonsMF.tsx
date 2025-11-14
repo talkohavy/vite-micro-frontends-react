@@ -1,6 +1,5 @@
 import { Suspense } from 'react';
 import { useFederatedComponent } from '@src/common/utils/useFederatedComponent';
-import { RemoteBundleType } from '@src/common/utils/useFederatedComponent/logic/constants';
 import MicroFrontendErrorBoundary from '@src/components/ErrorBoundaries/MicroFrontendErrorBoundary';
 
 export default function DragonsMF() {
@@ -8,7 +7,6 @@ export default function DragonsMF() {
     remoteName: 'mf_dragons',
     moduleName: 'App',
     remoteEntryUrl: 'http://localhost:3002/remoteEntry.js',
-    type: RemoteBundleType.Module,
   });
 
   if (!Component) return null;
