@@ -1,4 +1,4 @@
-import { RemoteBundleType } from './logic/constants';
+import { RemoteBundleTypeValues } from './logic/constants';
 import useInitMicroFrontend from './logic/hooks/useInitMicroFrontend';
 import useLoadedComponent from './logic/hooks/useLoadedComponent';
 import useSanityCheck from './logic/hooks/useSanityCheck';
@@ -7,7 +7,7 @@ type UseFederatedComponentProps = {
   remoteName: string;
   remoteEntryUrl: string;
   moduleName: string;
-  type: RemoteBundleType;
+  type: RemoteBundleTypeValues;
 };
 
 export function useFederatedComponent(props: UseFederatedComponentProps) {

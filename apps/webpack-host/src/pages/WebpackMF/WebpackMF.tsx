@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 import { useFederatedComponent } from '@src/common/utils/useFederatedComponent';
-import { RemoteBundleType } from '@src/common/utils/useFederatedComponent/logic/constants';
+import { RemoteBundleTypes } from '@src/common/utils/useFederatedComponent/logic/constants';
 import MicroFrontendErrorBoundary from '@src/components/ErrorBoundaries/MicroFrontendErrorBoundary';
 
 export default function WebpackMF() {
@@ -8,7 +8,7 @@ export default function WebpackMF() {
     remoteName: 'mf_webpack',
     moduleName: 'App',
     remoteEntryUrl: 'http://localhost:3003/remoteEntry.js',
-    type: RemoteBundleType.Commonjs, // webpack builds as 'var' format
+    type: RemoteBundleTypes.Commonjs, // webpack builds as 'var' format
   });
 
   if (!Component) return null;
@@ -21,4 +21,3 @@ export default function WebpackMF() {
     </MicroFrontendErrorBoundary>
   );
 }
-

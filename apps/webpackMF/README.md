@@ -46,18 +46,18 @@ shared: ['react', 'react-dom']
 
 ```typescript
 import { useFederatedComponent } from '@src/common/utils/useFederatedComponent';
-import { RemoteBundleType } from '@src/common/utils/useFederatedComponent/logic/constants';
+import { RemoteBundleTypes } from '@src/common/utils/useFederatedComponent/logic/constants';
 
 function WebpackMFPage() {
   const { Component } = useFederatedComponent({
     remoteName: 'mf_webpack',
     moduleName: 'App',
     remoteEntryUrl: 'http://localhost:3003/remoteEntry.js',
-    type: RemoteBundleType.Commonjs, // webpack uses 'var' by default
+    type: RemoteBundleTypes.Commonjs, // webpack uses 'var' by default
   });
 
   if (!Component) return <div>Loading...</div>;
-  
+
   return <Component />;
 }
 ```
@@ -97,6 +97,7 @@ The main exposed component showcasing the webpack micro-frontend.
 **Location:** `src/exposes/ExposedWebpackMF.tsx`
 
 **Features:**
+
 - Styled with CSS Modules (SCSS)
 - Displays webpack MF information
 - Feature grid with hover effects
@@ -129,6 +130,7 @@ webpackMF/
 ## CSS Modules Configuration
 
 CSS Modules are configured with:
+
 - Pattern: `*.module.css` or `*.module.scss`
 - Generated class names: `[name].[local].[hash:base64:5]`
 - Convention: `camelCaseOnly`
@@ -136,12 +138,12 @@ CSS Modules are configured with:
 
 ## Differences from Vite Remotes
 
-| Feature | Vite Remote | Webpack Remote |
-|---------|-------------|----------------|
-| Build Tool | Vite | Webpack 5 |
-| Module Format | ESM (`module`) | CommonJS/UMD (`var`) |
-| Bundle Type | `RemoteBundleType.Module` | `RemoteBundleType.Commonjs` |
-| Fast Refresh | Can be enabled | webpack HMR |
+| Feature       | Vite Remote                | Webpack Remote               |
+| ------------- | -------------------------- | ---------------------------- |
+| Build Tool    | Vite                       | Webpack 5                    |
+| Module Format | ESM (`module`)             | CommonJS/UMD (`var`)         |
+| Bundle Type   | `RemoteBundleTypes.Module` | `RemoteBundleTypes.Commonjs` |
+| Fast Refresh  | Can be enabled             | webpack HMR                  |
 
 ## Important Notes
 
@@ -150,6 +152,7 @@ CSS Modules are configured with:
 Webpack requires the entry point to use async imports:
 
 **`main.tsx`:**
+
 ```typescript
 import('./bootstrap');
 export {};
@@ -160,8 +163,9 @@ This creates an async boundary required for Module Federation.
 ### 2. Module Format
 
 Webpack builds as **'var'** format by default, while Vite builds as **'module'** (ESM). When consuming this remote:
-- Use `type: RemoteBundleType.Commonjs` or `type: 'var'`
-- Don't use `type: RemoteBundleType.Module`
+
+- Use `type: RemoteBundleTypes.Commonjs` or `type: 'var'`
+- Don't use `type: RemoteBundleTypes.Module`
 
 ### 3. Shared Dependencies
 
@@ -182,6 +186,7 @@ Only `react` and `react-dom` are shared. Each is configured as singleton to ensu
 ## CSS Loaders
 
 The webpack config includes proper loaders for:
+
 - Plain CSS
 - CSS Modules (`.module.css`)
 - SCSS
@@ -212,6 +217,7 @@ The webpack config includes proper loaders for:
 ## Summary
 
 This webpack remote MF demonstrates:
+
 - ✅ Proper Module Federation configuration for webpack
 - ✅ Component exposure via `exposes`
 - ✅ CSS Modules with SCSS

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { registerRemotes } from '@module-federation/enhanced/runtime';
-import { initedMicroFrontendsCache, RemoteBundleType } from '../constants';
+import { initedMicroFrontendsCache, RemoteBundleTypeValues } from '../constants';
 
 type UseInitMicroFrontendProps = {
   remoteName: string;
@@ -8,7 +8,7 @@ type UseInitMicroFrontendProps = {
   /**
    * @default 'var'
    */
-  type?: RemoteBundleType;
+  type?: RemoteBundleTypeValues;
 };
 
 export default function useInitMicroFrontend(props: UseInitMicroFrontendProps) {

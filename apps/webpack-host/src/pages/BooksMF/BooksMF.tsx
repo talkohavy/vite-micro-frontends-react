@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 import { useFederatedComponent } from '@src/common/utils/useFederatedComponent';
-import { RemoteBundleType } from '@src/common/utils/useFederatedComponent/logic/constants';
+import { RemoteBundleTypes } from '@src/common/utils/useFederatedComponent/logic/constants';
 import MicroFrontendErrorBoundary from '@src/components/ErrorBoundaries/MicroFrontendErrorBoundary';
 
 export default function BooksMF() {
@@ -8,7 +8,7 @@ export default function BooksMF() {
     remoteName: '@mf/books',
     moduleName: 'App',
     remoteEntryUrl: 'http://localhost:3001/remoteEntry.js',
-    type: RemoteBundleType.Module,
+    type: RemoteBundleTypes.Module,
   });
 
   if (!Component) return null;

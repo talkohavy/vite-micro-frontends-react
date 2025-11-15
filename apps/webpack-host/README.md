@@ -45,14 +45,14 @@ The core of the dynamic module federation loading is handled by the `useFederate
 
 ```typescript
 import { useFederatedComponent } from '@src/common/utils/useFederatedComponent';
-import { RemoteBundleType } from '@src/common/utils/useFederatedComponent/logic/constants';
+import { RemoteBundleTypes } from '@src/common/utils/useFederatedComponent/logic/constants';
 
 function MyPage() {
   const { Component } = useFederatedComponent({
     remoteName: '@mf/books',
     remoteEntryUrl: 'http://localhost:3001/remoteEntry.js',
     moduleName: './ExposedBooksMF',
-    type: RemoteBundleType.Module,
+    type: RemoteBundleTypes.Module,
   });
 
   if (!Component) return <div>Loading...</div>;
