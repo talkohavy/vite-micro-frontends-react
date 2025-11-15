@@ -10,7 +10,6 @@ export default function MultipleMFs() {
   const { Component: DragonsMF } = useFederatedComponent({
     remoteName: '@mf/dragons',
     moduleName: 'App',
-    remoteEntryUrl: 'http://localhost:3002/mf-manifest.json',
   });
 
   return (

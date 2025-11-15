@@ -6,7 +6,6 @@ export default function DragonsPage() {
   const { Component: DragonsMF } = useFederatedComponent({
     remoteName: '@mf/dragons',
     moduleName: 'App',
-    remoteEntryUrl: 'http://localhost:3002/remoteEntry.js',
   });
 
   if (!DragonsMF) return null;
