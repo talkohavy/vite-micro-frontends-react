@@ -9,6 +9,10 @@ import svgr from 'vite-plugin-svgr';
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+const remoteEntryFileName = 'remoteEntry.js';
+const remoteNameShort = 'fruits';
+const remoteName = `@mf/${remoteNameShort}`;
+
 export default defineConfig({
   plugins: [
     // For a webpack host, you'll need to comment out the line below:
@@ -18,8 +22,8 @@ export default defineConfig({
       svgrOptions: { exportType: 'named' },
     }),
     federation({
-      name: '@mf/fruits',
-      filename: 'remoteEntry.js',
+      name: remoteName,
+      filename: remoteEntryFileName,
       manifest: true,
       exposes: {
         './App': './src/exposes/ExposedFruitsMF',
@@ -50,7 +54,7 @@ export default defineConfig({
   },
   css: {
     modules: {
-      generateScopedName: '[name].[local].[hash:base64:5]',
+      generateScopedName: `${remoteNameShort}_[folder]_[name]_[local]__[hash:base64:5]`, // Folder= the folder where the css lives. Name= name of the css file (".css" not included). Local= name of the class inside the file.
       localsConvention: 'camelCaseOnly',
     },
     preprocessorOptions: {

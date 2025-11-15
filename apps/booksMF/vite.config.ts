@@ -6,6 +6,10 @@ import { defineConfig, PluginOption } from 'vite';
 import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js';
 import svgr from 'vite-plugin-svgr';
 
+const remoteEntryFileName = 'remoteEntry.js';
+const remoteNameShort = 'books';
+const remoteName = `@mf/${remoteNameShort}`;
+
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -18,8 +22,8 @@ export default defineConfig({
       svgrOptions: { exportType: 'named' },
     }),
     federation({
-      name: '@mf/books',
-      filename: 'remoteEntry.js',
+      name: remoteName,
+      filename: remoteEntryFileName,
       manifest: true,
       exposes: {
         './App': './src/exposes/ExposedBooksMF',
@@ -50,7 +54,7 @@ export default defineConfig({
   },
   css: {
     modules: {
-      generateScopedName: '[name].[local].[hash:base64:5]',
+      generateScopedName: `${remoteNameShort}_[folder]_[name]_[local]__[hash:base64:5]`, // Folder= the folder where the css lives. Name= name of the css file (".css" not included). Local= name of the class inside the file.
       localsConvention: 'camelCaseOnly',
     },
     preprocessorOptions: {

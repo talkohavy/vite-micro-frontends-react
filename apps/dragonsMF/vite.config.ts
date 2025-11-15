@@ -8,13 +8,17 @@ import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js';
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+const remoteEntryFileName = 'remoteEntry.js';
+const remoteNameShort = 'dragons';
+const remoteName = `@mf/${remoteNameShort}`;
+
 export default defineConfig({
   plugins: [
     // For a webpack host, you'll need to comment out the line below:
     react({ reactRefreshHost: 'http://localhost:3000' }),
     federation({
-      name: '@mf/dragons',
-      filename: 'remoteEntry.js',
+      name: remoteName,
+      filename: remoteEntryFileName,
       manifest: true,
       exposes: {
         './App': './src/exposes/ExposedDragonsMF',
@@ -44,7 +48,7 @@ export default defineConfig({
   },
   css: {
     modules: {
-      generateScopedName: '[name].[local].[hash:base64:5]',
+      generateScopedName: `${remoteNameShort}_[folder]_[name]_[local]__[hash:base64:5]`, // Folder= the folder where the css lives. Name= name of the css file (".css" not included). Local= name of the class inside the file.
       localsConvention: 'camelCaseOnly',
     },
     preprocessorOptions: {

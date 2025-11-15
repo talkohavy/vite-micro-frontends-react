@@ -8,6 +8,10 @@ import svgr from 'vite-plugin-svgr';
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+const remoteEntryFileName = 'remoteEntry.js';
+const remoteNameShort = 'host';
+const remoteName = `@mf/${remoteNameShort}`;
+
 export default defineConfig({
   plugins: [
     react(),
@@ -16,8 +20,8 @@ export default defineConfig({
       svgrOptions: { exportType: 'named' },
     }),
     federation({
-      name: 'host',
-      filename: 'remoteEntry.js',
+      name: remoteName,
+      filename: remoteEntryFileName,
       manifest: true,
       remotes: {
         // Note about the key for the object (i.e. '@mf-books'), it can be whatever you want. with this you'll do the import. i.e. '@mf-books/SomeComponent'
@@ -58,7 +62,7 @@ export default defineConfig({
   },
   css: {
     modules: {
-      generateScopedName: '[name].[local].[hash:base64:5]',
+      generateScopedName: `${remoteNameShort}_[folder]_[name]_[local]__[hash:base64:5]`, // Folder= the folder where the css lives. Name= name of the css file (".css" not included). Local= name of the class inside the file.
       localsConvention: 'camelCaseOnly',
     },
     preprocessorOptions: {
