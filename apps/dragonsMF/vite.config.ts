@@ -1,3 +1,4 @@
+import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js';
 import url from 'url';
 import path from 'path';
 import { defineConfig, PluginOption } from 'vite';
@@ -20,6 +21,7 @@ export default defineConfig({
       },
       shared: ['react', 'react-dom', 'react-refresh'],
     }),
+    cssInjectedByJsPlugin(),
   ] as PluginOption[],
   server: {
     port: 3002,

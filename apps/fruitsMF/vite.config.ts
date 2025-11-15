@@ -1,4 +1,5 @@
 import url from 'url';
+import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js';
 import path from 'path';
 import { defineConfig, PluginOption } from 'vite';
 import react from '@vitejs/plugin-react';
@@ -12,6 +13,10 @@ export default defineConfig({
   plugins: [
     // For a webpack host, you'll need to comment out the line below:
     react({ reactRefreshHost: 'http://localhost:3000' }),
+    svgr({
+      include: '**/*.svg',
+      svgrOptions: { exportType: 'named' },
+    }),
     federation({
       name: '@mf/fruits',
       filename: 'remoteEntry.js',
@@ -21,10 +26,7 @@ export default defineConfig({
       },
       shared: ['react', 'react-dom', 'react-refresh'],
     }),
-    svgr({
-      include: '**/*.svg',
-      svgrOptions: { exportType: 'named' },
-    }),
+    cssInjectedByJsPlugin(),
   ] as PluginOption[],
   server: {
     port: 3004,
