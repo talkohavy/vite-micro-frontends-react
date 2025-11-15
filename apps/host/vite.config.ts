@@ -28,7 +28,7 @@ export default defineConfig({
         },
         '@mf/fruits': {
           name: '@mf/fruits', // <--- this needs to match the EXACT name of the remote MF.
-          entry: 'http://localhost:3004/mf-manifest.json',
+          entry: 'http://localhost:3004/remoteEntry.js',
           type: 'module', // <--- IMPORTANT!!! without this you'll get an error. Your remote vite apps are bundled as esm.
         },
       },
