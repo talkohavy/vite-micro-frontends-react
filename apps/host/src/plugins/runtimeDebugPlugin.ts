@@ -13,9 +13,9 @@ import {
   ResolveShareOptions,
 } from './types';
 
-export default function demoRuntimePlugin() {
+export default function runtimeDebugPlugin() {
   return {
-    name: 'module-federation-example-runtime-plugin',
+    name: 'runtime-debug-plugin',
     /**
      * Updates the corresponding init configuration before the MF instance is initialized.
      */
