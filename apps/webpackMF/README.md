@@ -52,8 +52,6 @@ function WebpackMFPage() {
   const { Component } = useFederatedComponent({
     remoteName: 'mf_webpack',
     moduleName: 'App',
-    remoteEntryUrl: 'http://localhost:3003/remoteEntry.js',
-    type: RemoteBundleTypes.Commonjs, // webpack uses 'var' by default
   });
 
   if (!Component) return <div>Loading...</div>;
