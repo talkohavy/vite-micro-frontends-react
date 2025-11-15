@@ -128,5 +128,5 @@
   },
   "compileOnSave": true,
   "exclude": ["node_modules", "**/node_modules/*", "<node_internals>/**", "bin/**"],
-  "include": ["src"]
+  "include": ["src", "vite.config.ts"]
 }
