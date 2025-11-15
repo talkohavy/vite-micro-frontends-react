@@ -37,7 +37,7 @@ export default defineConfig({
         },
       },
       shared: ['react', 'react-dom', 'react-refresh'],
-      runtimePlugins: ['./src/mfPlugins'],
+      runtimePlugins: ['./src/plugins/fetchManifestWithCredentialsPlugin'], // './src/plugins/runtimeDebugPlugin'
     }),
   ] as PluginOption[],
   server: {
