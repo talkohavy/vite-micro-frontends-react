@@ -6,7 +6,7 @@ export const initedMicroFrontendsCache = new Map<string, boolean>();
 
 export const RemoteBundleTypes = {
   Module: 'module',
-  Commonjs: 'var',
+  Commonjs: 'var', // <--- 'var' is the same as 'commonjs'
 } as const;
 
 export type RemoteBundleTypeValues = (typeof RemoteBundleTypes)[keyof typeof RemoteBundleTypes];
