@@ -4,24 +4,23 @@ import useLoadedComponent from './logic/hooks/useLoadedComponent';
 
 registerRemotes([
   // { name: '@mf/books', entry: 'http://localhost:3001/remoteEntry.js', type: RemoteBundleTypes.Module }, // <--- already defined at build
-  { name: '@mf/dragons', entry: 'http://localhost:3002/mf-manifest.json', type: RemoteBundleTypes.Module },
+  { name: '@mf/dragons', entry: 'http://localhost:3002/remoteEntry.js', type: RemoteBundleTypes.Module },
   { name: 'mf_webpack', entry: 'http://localhost:3003/remoteEntry.js', type: RemoteBundleTypes.Commonjs },
 ]);
 
 type UseFederatedComponentProps = {
   remoteName: string;
-  remoteEntryUrl: string;
   moduleName: string;
 };
 
 export function useFederatedComponent(props: UseFederatedComponentProps) {
-  const { remoteName, remoteEntryUrl, moduleName } = props ?? {};
+  const { remoteName, moduleName } = props ?? {};
 
-  if (!(remoteName && moduleName && remoteEntryUrl)) {
+  if (!(remoteName && moduleName)) {
     throw new Error('remoteName, moduleName, and remoteEntryUrl must be valid values at all times!');
   }
 
-  const { Component } = useLoadedComponent({ remoteName, moduleName, remoteEntryUrl });
+  const { Component } = useLoadedComponent({ remoteName, moduleName });
 
   return { Component };
 }

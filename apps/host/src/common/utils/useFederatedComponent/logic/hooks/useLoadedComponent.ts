@@ -5,19 +5,18 @@ import { loadComponent } from '../utils/loadComponent';
 
 type useLoadedComponentProps = {
   remoteName: string;
-  remoteEntryUrl: string;
   moduleName: string;
 };
 
 export default function useLoadedComponent(props: useLoadedComponentProps) {
-  const { remoteName, moduleName, remoteEntryUrl } = props;
+  const { remoteName, moduleName } = props;
 
   const [Component, setComponent] = useState<LazyExoticComponent<FederatedModule> | null>(null);
 
   useEffect(() => {
     if (Component) return;
 
-    const federatedComponentKey = `${remoteName}-${remoteEntryUrl}-${moduleName}`;
+    const federatedComponentKey = `${remoteName}-${moduleName}`;
 
     const cachedComponent = componentsCache.get(federatedComponentKey);
 
@@ -31,7 +30,7 @@ export default function useLoadedComponent(props: useLoadedComponentProps) {
 
     return () => setComponent(null);
     // Do not add Component as a dependency!
-  }, [remoteName, moduleName, remoteEntryUrl]);
+  }, [remoteName, moduleName]);
 
   return { Component };
 }

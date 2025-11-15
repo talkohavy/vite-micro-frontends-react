@@ -23,13 +23,13 @@ export default defineConfig({
         // Note about the key for the object (i.e. '@mf-books'), it can be whatever you want. with this you'll do the import. i.e. '@mf-books/SomeComponent'
         '@mf/books': {
           name: '@mf/books', // <--- this needs to match the EXACT name of the remote MF.
+          entry: 'http://localhost:3001/remoteEntry.js', // <--- try switching between mf-manifest.json and remoteEntry.js. Both should work when the remote vite.config set the origin correctly. When origin isn't set, only remoteEntry.js will work. Only with mf-manifest.json the dev-tool extension will work.
           type: 'module', // <--- IMPORTANT!!! without this you'll get an error. Your remote vite apps are bundled as esm.
-          entry: 'http://localhost:3001/mf-manifest.json', // <--- try switching between mf-manifest.json and remoteEntry.js. Both should work when the remote vite.config set the origin correctly. When origin isn't set, only remoteEntry.js will work. Only with mf-manifest.json the dev-tool extension will work.
         },
         '@mf/fruits': {
           name: '@mf/fruits', // <--- this needs to match the EXACT name of the remote MF.
-          type: 'module', // <--- IMPORTANT!!! without this you'll get an error. Your remote vite apps are bundled as esm.
           entry: 'http://localhost:3004/mf-manifest.json',
+          type: 'module', // <--- IMPORTANT!!! without this you'll get an error. Your remote vite apps are bundled as esm.
         },
       },
       shared: ['react', 'react-dom', 'react-refresh'],
