@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import styles from './Button.module.css';
+import styles from './Button.module.scss';
 
 export default function Button() {
   const [state, setState] = useState(0);

@@ -2,7 +2,7 @@ import { ReactComponent as Cherry } from '../../assets/cherry.svg';
 import { ReactComponent as Grapes } from '../../assets/grapes.svg';
 import { ReactComponent as Strawberry } from '../../assets/strawberry.svg';
 import { ReactComponent as Watermelon } from '../../assets/watermelon.svg';
-import styles from './App.module.css';
+import styles from './App.module.scss';
 
 export default function App() {
   return (
