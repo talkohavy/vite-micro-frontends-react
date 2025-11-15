@@ -45,6 +45,12 @@ export default defineConfig({
       generateScopedName: '[name].[local].[hash:base64:5]',
       localsConvention: 'camelCaseOnly',
     },
+    preprocessorOptions: {
+      scss: {
+        // Allow SASS to resolve imports from project root (so 'src/...' paths work)
+        loadPaths: [path.resolve(__dirname)],
+      },
+    },
     devSourcemap: true,
   },
 });
