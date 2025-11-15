@@ -25,7 +25,11 @@ export default defineConfig({
       },
       shared: ['react', 'react-dom', 'react-refresh'],
     }),
-    cssInjectedByJsPlugin(),
+    cssInjectedByJsPlugin({
+      jsAssetsFilterFunction: (outputChunk) => {
+        return outputChunk.fileName === remoteEntryFileName;
+      },
+    }),
   ] as PluginOption[],
   server: {
     port: 3002,
