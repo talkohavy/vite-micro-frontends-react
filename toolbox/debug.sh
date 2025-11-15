@@ -1,7 +1,9 @@
 #!/bin/bash
 
-# Get the absolute path to the project directory
-PROJECT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+# Get the absolute path to the project directory (parent of toolbox)
+PROJECT_DIR="$( pwd )"
+
+echo $PROJECT_DIR
 
 osascript <<EOF
 tell application "iTerm"
