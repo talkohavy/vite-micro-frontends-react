@@ -48,9 +48,13 @@ export default defineConfig({
     },
   },
   build: {
+    outDir: './dist', // <--- this is relative to the `root` option.
     modulePreload: false,
     target: 'esnext', // <--- or 'chrome89' , just as long as you have top-level-await in the runtime environment it's fine.
     minify: false,
+    cssCodeSplit: false,
+    sourcemap: true,
+    emptyOutDir: true,
   },
   css: {
     modules: {

@@ -32,10 +32,13 @@ export default defineConfig({
     },
   },
   build: {
+    outDir: './dist', // <--- this is relative to the `root` option.
     modulePreload: false,
     target: 'esnext',
     minify: false,
     cssCodeSplit: false,
+    sourcemap: true,
+    emptyOutDir: true,
   },
   css: {
     modules: {
