@@ -1,22 +1,19 @@
 import { Suspense } from 'react';
 import { useFederatedComponent } from '@src/common/utils/useFederatedComponent';
-import { RemoteBundleTypes } from '@src/common/utils/useFederatedComponent/logic/constants';
 import MicroFrontendErrorBoundary from '@src/components/ErrorBoundaries/MicroFrontendErrorBoundary';
 
 export default function BooksMF() {
-  const { Component } = useFederatedComponent({
+  const { Component: Books } = useFederatedComponent({
     remoteName: '@mf/books',
     moduleName: 'App',
-    remoteEntryUrl: 'http://localhost:3001/remoteEntry.js',
-    type: RemoteBundleTypes.Module,
   });
 
-  if (!Component) return null;
+  if (!Books) return null;
 
   return (
     <MicroFrontendErrorBoundary>
       <Suspense fallback='Loading books...'>
-        <Component />
+        <Books />
       </Suspense>
     </MicroFrontendErrorBoundary>
   );

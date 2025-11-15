@@ -50,9 +50,7 @@ import { RemoteBundleTypes } from '@src/common/utils/useFederatedComponent/logic
 function MyPage() {
   const { Component } = useFederatedComponent({
     remoteName: '@mf/books',
-    remoteEntryUrl: 'http://localhost:3001/remoteEntry.js',
-    moduleName: './ExposedBooksMF',
-    type: RemoteBundleTypes.Module,
+    moduleName: 'ExposedBooksMF',
   });
 
   if (!Component) return <div>Loading...</div>;

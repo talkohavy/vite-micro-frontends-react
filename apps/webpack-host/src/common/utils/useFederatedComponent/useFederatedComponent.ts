@@ -1,23 +1,26 @@
-import { RemoteBundleTypeValues } from './logic/constants';
-import useInitMicroFrontend from './logic/hooks/useInitMicroFrontend';
+import { registerRemotes } from '@module-federation/enhanced/runtime';
+import { RemoteBundleTypes } from './logic/constants';
 import useLoadedComponent from './logic/hooks/useLoadedComponent';
-import useSanityCheck from './logic/hooks/useSanityCheck';
+
+registerRemotes([
+  // { name: '@mf/books', entry: 'http://localhost:3001/remoteEntry.js', type: RemoteBundleTypes.Module }, // <--- already defined at build
+  { name: '@mf/dragons', entry: 'http://localhost:3002/remoteEntry.js', type: RemoteBundleTypes.Module },
+  { name: 'mf_webpack', entry: 'http://localhost:3003/remoteEntry.js', type: RemoteBundleTypes.Commonjs },
+]);
 
 type UseFederatedComponentProps = {
   remoteName: string;
-  remoteEntryUrl: string;
   moduleName: string;
-  type: RemoteBundleTypeValues;
 };
 
 export function useFederatedComponent(props: UseFederatedComponentProps) {
-  const { remoteName, remoteEntryUrl, moduleName, type } = props ?? {};
+  const { remoteName, moduleName } = props ?? {};
 
-  useSanityCheck({ remoteName, moduleName, remoteEntryUrl }); // <--- MUST come before useInitMicroFrontend & useLoadedComponent
+  if (!(remoteName && moduleName)) {
+    throw new Error('remoteName, moduleName, and remoteEntryUrl must be valid values at all times!');
+  }
 
-  useInitMicroFrontend({ remoteName, remoteEntryUrl, type }); // <--- not must, but should come before useLoadedComponent
-
-  const { Component } = useLoadedComponent({ remoteName, moduleName, remoteEntryUrl });
+  const { Component } = useLoadedComponent({ remoteName, moduleName });
 
   return { Component };
 }
