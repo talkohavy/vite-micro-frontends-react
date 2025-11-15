@@ -30,6 +30,7 @@ export default function useLoadedComponent(props: useLoadedComponentProps) {
 
     return () => setComponent(null);
     // Do not add Component as a dependency!
+    // eslint-disable-next-line
   }, [remoteName, moduleName]);
 
   return { Component };

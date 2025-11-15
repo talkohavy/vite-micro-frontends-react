@@ -1,9 +1,9 @@
-import url from 'url';
-import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js';
-import path from 'path';
-import { defineConfig, PluginOption } from 'vite';
-import react from '@vitejs/plugin-react';
 import { federation } from '@module-federation/vite';
+import react from '@vitejs/plugin-react';
+import path from 'path';
+import url from 'url';
+import { defineConfig, PluginOption } from 'vite';
+import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js';
 import svgr from 'vite-plugin-svgr';
 
 const __filename = url.fileURLToPath(import.meta.url);

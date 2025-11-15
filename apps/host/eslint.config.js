@@ -1,25 +1,32 @@
 import pluginJs from '@eslint/js';
+import importPlugin from 'eslint-plugin-import';
 import perfectionist from 'eslint-plugin-perfectionist';
 import pluginCompiler from 'eslint-plugin-react-compiler';
+import pluginReactHooks from 'eslint-plugin-react-hooks';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
 export default [
   {
     // when an `ignores` key is used without any other keys in the configuration object, then it acts as global `ignores`.
-    ignores: ['dist'],
+    ignores: ['dist', 'coverage'],
   },
-  { languageOptions: { globals: globals.browser } },
+  { languageOptions: { globals: { ...globals.node, ...globals.browser } } },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   {
     name: 'react-compiler/recommended',
     plugins: {
       'react-compiler': pluginCompiler,
+      'react-hooks': pluginReactHooks,
       perfectionist,
+      import: importPlugin,
     },
     rules: {
       'react-compiler/react-compiler': 'error',
+      'react-hooks/rules-of-hooks': 'warn',
+      'react-hooks/exhaustive-deps': 'warn',
+      'import/no-duplicates': ['error', { 'prefer-inline': false }],
     },
   },
   {
