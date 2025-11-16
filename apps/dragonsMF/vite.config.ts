@@ -41,6 +41,30 @@ export default defineConfig({
       '@src': path.resolve(__dirname, 'src'),
     },
   },
+  preview: {
+    port: 3002,
+    /**
+     * Use `cors` to mimic getting CORS error. Without setting this, any request will be allowed.
+     *
+     * There are 2 ways to get hit by CORS `cors`:
+     *
+     * 1. using `cors` as an object
+     * 2. using `headers['Access-Control-Allow-Origin']` and a wrong origin
+     */
+    // cors: {
+    //   origin: 'http://test2.com',
+    //   credentials: true,
+    // },
+    // headers: {
+    //   'Access-Control-Allow-Origin': 'http://test.com',
+    //   // 'Access-Control-Allow-Credentials': 'true',
+    //   // 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+    //   // 'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+    //   // 'Access-Control-Max-Age': '86400',
+    //   // 'cache-control': 'no-store',
+    // },
+    // allowedHosts: ['http://localhost:8000'], // <--- never use `allowedHosts`, as it doesn't work. use `cors` (as an object) instead.
+  },
   build: {
     outDir: './dist', // <--- this is relative to the `root` option.
     modulePreload: false,
