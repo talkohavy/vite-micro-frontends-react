@@ -5,12 +5,12 @@ import url from 'url';
 import { defineConfig, PluginOption } from 'vite';
 import svgr from 'vite-plugin-svgr';
 
+const __filename = url.fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const remoteEntryFileName = 'remoteEntry.js';
 const remoteNameShort = 'books';
 const remoteName = `@mf/${remoteNameShort}`;
-
-const __filename = url.fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 export default defineConfig({
   plugins: [
