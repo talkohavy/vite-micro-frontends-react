@@ -3,7 +3,6 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 import url from 'url';
 import { defineConfig, PluginOption } from 'vite';
-import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js';
 import svgr from 'vite-plugin-svgr';
 
 const remoteEntryFileName = 'remoteEntry.js';
@@ -32,16 +31,15 @@ export default defineConfig({
       shared: ['react', 'react-dom', 'react-refresh'],
       // getPublicPath: `function() {return "http:localhost:3001/"}`,
     }),
-    cssInjectedByJsPlugin({
-      jsAssetsFilterFunction: (outputChunk) => {
-        return outputChunk.fileName === remoteEntryFileName;
-      },
-    }),
   ] as PluginOption[],
   /**
-   * This here (the `base`) is important for loading the mf-manifest.json file. When the default value is set (i.e. '/'), the mf-manifest.json tries to load chunks from the same origin (i.e. the host's origin).
+   * This here (the `base`) is important for 2 things:
+   * 1. loading the mf-manifest.json file.
+   * 2. loading the css files for the components.
+   *
+   * When the default value is set (i.e. '/'), the css files & the mf-manifest.json tries to load chunks from the same origin (i.e. the host's origin).
    */
-  // base: 'http://localhost:3001',
+  base: 'http://localhost:3001',
   server: {
     port: 3001,
     strictPort: true,
@@ -55,7 +53,6 @@ export default defineConfig({
       // 'Access-Control-Allow-Origin': '*',
     },
   },
-  // base: 'http://localhost:3001',
   resolve: {
     alias: {
       '@src': path.resolve(__dirname, 'src'),

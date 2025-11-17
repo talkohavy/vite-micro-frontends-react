@@ -3,7 +3,6 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 import url from 'url';
 import { defineConfig, PluginOption } from 'vite';
-import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js';
 import svgr from 'vite-plugin-svgr';
 
 const __filename = url.fileURLToPath(import.meta.url);
@@ -30,11 +29,6 @@ export default defineConfig({
       },
       shared: ['react', 'react-dom', 'react-refresh'],
     }),
-    cssInjectedByJsPlugin({
-      jsAssetsFilterFunction: (outputChunk) => {
-        return outputChunk.fileName === remoteEntryFileName;
-      },
-    }),
   ] as PluginOption[],
   server: {
     port: 3004,
@@ -48,7 +42,7 @@ export default defineConfig({
       'Access-Control-Allow-Credentials': 'true',
     },
   },
-  // base: 'http://localhost:3004',
+  base: 'http://localhost:3004',
   resolve: {
     alias: {
       '@src': path.resolve(__dirname, 'src'),

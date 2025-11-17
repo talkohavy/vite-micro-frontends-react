@@ -72,9 +72,6 @@ importers:
       vite:
         specifier: ^7.2.2
         version: 7.2.2(@types/node@24.10.0)(sass-embedded@1.93.3)(sass@1.93.3)
-      vite-plugin-css-injected-by-js:
-        specifier: ^3.5.2
-        version: 3.5.2(vite@7.2.2(@types/node@24.10.0)(sass-embedded@1.93.3)(sass@1.93.3))
 
 packages:
 
@@ -2105,11 +2102,6 @@ packages:
 
   varint@6.0.0:
     resolution: {integrity: sha512-cXEIW6cfr15lFv563k4GuVuW/fiwjknytD37jIOLSdSWuOI6WnO/oKwmP2FQTU2l01LP8/M5TSAJpzUaGe3uWg==}
-
-  vite-plugin-css-injected-by-js@3.5.2:
-    resolution: {integrity: sha512-2MpU/Y+SCZyWUB6ua3HbJCrgnF0KACAsmzOQt1UvRVJCGF6S8xdA3ZUhWcWdM9ivG4I5az8PnQmwwrkC2CAQrQ==}
-    peerDependencies:
-      vite: '>2.0.0-0'
 
   vite-plugin-svgr@4.5.0:
     resolution: {integrity: sha512-W+uoSpmVkSmNOGPSsDCWVW/DDAyv+9fap9AZXBvWiQqrboJ08j2vh0tFxTD/LjwqwAd3yYSVJgm54S/1GhbdnA==}
@@ -4412,10 +4404,6 @@ snapshots:
       punycode: 2.3.1
 
   varint@6.0.0: {}
-
-  vite-plugin-css-injected-by-js@3.5.2(vite@7.2.2(@types/node@24.10.0)(sass-embedded@1.93.3)(sass@1.93.3)):
-    dependencies:
-      vite: 7.2.2(@types/node@24.10.0)(sass-embedded@1.93.3)(sass@1.93.3)
 
   vite-plugin-svgr@4.5.0(rollup@4.53.1)(typescript@5.9.3)(vite@7.2.2(@types/node@24.10.0)(sass-embedded@1.93.3)(sass@1.93.3)):
     dependencies:
