@@ -1,25 +1,23 @@
+import { ModuleFederationRuntimePlugin } from '@module-federation/enhanced/runtime';
 import {
   AfterResolveOptions,
-  BeforeInitOptions,
   BeforeLoadShareOptions,
   BeforeRequestOptions,
   CreateScriptOptions,
   ErrorLoadRemoteOptions,
-  GeneratePreloadAssetsOptions,
   HandlePreloadModuleOptions,
   InitOptions,
-  OnLoadOptions,
   PreloadAssets,
   ResolveShareOptions,
 } from './types';
 
-export default function runtimeDebugPlugin() {
+export default function runtimeDebugPlugin(): ModuleFederationRuntimePlugin {
   return {
     name: 'runtime-debug-plugin',
     /**
      * Updates the corresponding init configuration before the MF instance is initialized.
      */
-    beforeInit(args: BeforeInitOptions) {
+    beforeInit(args) {
       return args;
     },
     /**
@@ -46,7 +44,7 @@ export default function runtimeDebugPlugin() {
     /**
      * Triggered once a federated module is loaded, allowing access and modification to the exports of the loaded file.
      */
-    onLoad(args: OnLoadOptions) {
+    onLoad(args) {
       console.log('on load hook', args);
       return args;
     },
@@ -130,7 +128,7 @@ export default function runtimeDebugPlugin() {
       };
       return args;
     },
-    generatePreloadAssets(args: GeneratePreloadAssetsOptions): Promise<PreloadAssets> {
+    generatePreloadAssets(args): Promise<PreloadAssets> {
       console.log('generate preload assets hook', args);
       return {} as any;
     },
