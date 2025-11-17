@@ -7,8 +7,7 @@ import GlobalErrorBoundaryDevelopment from './components/ErrorBoundaries/GlobalE
 import ReactErrorOverlay from './components/ReactErrorOverlay';
 import SuspenseUntilReady from './components/SuspenseUntilReady';
 import DarkThemeProvider from './providers/DarkThemeProvider';
-import { createStore } from './store';
-import { State } from './store';
+import { createStore, State } from './store';
 import './index.css';
 import './common/styles/lightTheme.css';
 import './common/styles/darkTheme.css';
