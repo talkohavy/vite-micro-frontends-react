@@ -1,8 +1,5 @@
 import type { ModuleFederationRuntimePlugin } from '@module-federation/enhanced/runtime';
 
-// Hardcoded base URL - you can make this dynamic later
-const BASE_URL = 'http://localhost:3001';
-
 /**
  * This plugin intercepts at the generatePreloadAssets stage - the earliest point
  * where we can modify asset URLs before they're used to create DOM elements.
@@ -19,28 +16,46 @@ export default function dynamicallyAddBaseUrlPlugin(): ModuleFederationRuntimePl
         remoteInfo,
       });
 
-      remoteInfo.entry = attachBaseUrlToRemoteEntry(remoteInfo.entry);
+      const baseUrl = extractOriginFromVersion(remoteInfo.version!);
+      remoteInfo.entry = attachBaseUrlToRemoteEntryPath({ baseUrl, remoteEntryPath: remoteInfo.entry });
 
       return undefined as any;
     },
   };
 }
 
-function attachBaseUrlToRemoteEntry(remoteEntryUrl: string): string {
+/**
+ * Version looks like this: "http://localhost:3001/mf-manifest.json"
+ *
+ * It could potentially include a slug url. We need to extract the base url from it.
+ */
+function extractOriginFromVersion(version: string): string {
+  const url = new URL(version);
+  return url.origin;
+}
+
+type AttachBaseUrlToRemoteEntryProps = {
+  baseUrl: string;
+  remoteEntryPath: string;
+};
+
+function attachBaseUrlToRemoteEntryPath(props: AttachBaseUrlToRemoteEntryProps): string {
+  const { baseUrl, remoteEntryPath } = props;
+
   // If URL is already absolute, return as-is
   if (
-    remoteEntryUrl.startsWith('http://') ||
-    remoteEntryUrl.startsWith('https://') ||
-    remoteEntryUrl.startsWith('//')
+    remoteEntryPath.startsWith('http://') ||
+    remoteEntryPath.startsWith('https://') ||
+    remoteEntryPath.startsWith('//')
   ) {
-    return remoteEntryUrl;
+    return remoteEntryPath;
   }
 
   // If URL is relative, prepend base URL
-  if (remoteEntryUrl.startsWith('/')) {
-    return `${BASE_URL}${remoteEntryUrl}`;
+  if (remoteEntryPath.startsWith('/')) {
+    return `${baseUrl}${remoteEntryPath}`;
   }
 
   // If URL doesn't start with /, add both / and base URL
-  return `${BASE_URL}/${remoteEntryUrl}`;
+  return `${baseUrl}/${remoteEntryPath}`;
 }
