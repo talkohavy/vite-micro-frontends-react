@@ -27,7 +27,6 @@
     "prettier": "^3.6.2",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "react-refresh": "^0.14.2",
     "sass": "^1.93.3",
     "sass-loader": "^16.0.4",
     "style-loader": "^4.0.0",
@@ -48,4 +47,3 @@
     "react-router-dom": "^7.9.5"
   }
 }
-

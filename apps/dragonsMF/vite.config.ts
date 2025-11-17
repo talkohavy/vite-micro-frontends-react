@@ -22,7 +22,7 @@ export default defineConfig({
       exposes: {
         './App': './src/exposes/ExposedDragonsMF',
       },
-      shared: ['react', 'react-dom', 'react-refresh'],
+      shared: ['react', 'react-dom'],
     }),
   ] as PluginOption[],
   server: {

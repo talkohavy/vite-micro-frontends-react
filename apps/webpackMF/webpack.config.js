@@ -10,6 +10,7 @@ module.exports = (env, argv) => {
     mode: isDevelopment ? 'development' : 'production',
     devtool: isDevelopment ? 'eval-source-map' : 'source-map',
     output: {
+      uniqueName: '@mf/webpack',
       path: path.resolve(__dirname, 'dist'),
       filename: '[name].[contenthash].js',
       chunkFilename: '[name].[contenthash].js',

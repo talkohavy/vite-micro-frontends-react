@@ -84,9 +84,6 @@ importers:
       react-dom:
         specifier: ^19.2.0
         version: 19.2.0(react@19.2.0)
-      react-refresh:
-        specifier: ^0.14.2
-        version: 0.14.2
       sass:
         specifier: ^1.93.3
         version: 1.93.3

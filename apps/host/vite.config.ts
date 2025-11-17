@@ -36,7 +36,7 @@ export default defineConfig({
           type: 'module', // <--- IMPORTANT!!! without this you'll get an error. Your remote vite apps are bundled as esm.
         },
       },
-      shared: ['react', 'react-dom', 'react-refresh'],
+      shared: ['react', 'react-dom'],
       runtimePlugins: ['./src/plugins/dynamicallyAddBaseUrlPlugin'], // './src/plugins/runtimeDebugPlugin' | './src/plugins/loadEntryPlugin' | './src/plugins/loadCustomComponentPlugin'
     }),
   ] as PluginOption[],

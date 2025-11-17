@@ -28,7 +28,7 @@ export default defineConfig({
         './App': './src/exposes/ExposedBooksMF',
         './Button': './src/exposes/Button',
       },
-      shared: ['react', 'react-dom', 'react-refresh'],
+      shared: ['react', 'react-dom'],
       // getPublicPath: `function() {return "http:localhost:3001/"}`,
     }),
   ] as PluginOption[],

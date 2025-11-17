@@ -27,7 +27,7 @@ export default defineConfig({
       exposes: {
         './App': './src/exposes/ExposedFruitsMF',
       },
-      shared: ['react', 'react-dom', 'react-refresh'],
+      shared: ['react', 'react-dom'],
     }),
   ] as PluginOption[],
   server: {
