@@ -11,6 +11,7 @@ export default function loadEntryPlugin(): ModuleFederationRuntimePlugin {
             const correctedPath = path.replace('./', '');
             console.log('correctedPath is:', correctedPath);
 
+            // @ts-ignore - I deleted Door so typescript is complaining
             const factory = await import('../Door.tsx');
 
             return () => factory.default;

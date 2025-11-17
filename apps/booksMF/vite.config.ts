@@ -27,6 +27,7 @@ export default defineConfig({
       manifest: true,
       exposes: {
         './App': './src/exposes/ExposedBooksMF',
+        './Button': './src/exposes/Button',
       },
       shared: ['react', 'react-dom', 'react-refresh'],
     }),
