@@ -45,6 +45,10 @@ export default defineConfig({
     // open: true,
     strictPort: true,
   },
+  preview: {
+    port: 3000,
+    strictPort: true,
+  },
   clearScreen: false,
   resolve: {
     alias: {

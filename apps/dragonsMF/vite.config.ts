@@ -64,6 +64,9 @@ export default defineConfig({
     //   // 'cache-control': 'no-store',
     // },
     // allowedHosts: ['http://localhost:8000'], // <--- never use `allowedHosts`, as it doesn't work. use `cors` (as an object) instead.
+    headers: {
+      'Access-Control-Allow-Credentials': 'true',
+    },
   },
   build: {
     outDir: './dist', // <--- this is relative to the `root` option.

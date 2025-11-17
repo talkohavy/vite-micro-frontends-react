@@ -8,8 +8,8 @@
     "dev": "vite",
     "build-and-serve": "npm run build && npm run serve",
     "build": "vite build",
-    "preview": "vite preview --port 3002 --strictPort",
-    "serve": "vite preview --port 3002 --strictPort"
+    "preview": "vite preview",
+    "serve": "vite preview"
   },
   "dependencies": {
     "clsx": "^2.1.1",

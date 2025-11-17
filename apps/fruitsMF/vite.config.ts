@@ -41,6 +41,13 @@ export default defineConfig({
     strictPort: true,
     origin: 'http://localhost:3004', // <--- Defines the origin of the generated asset URLs during development. Without this, the mf-manifest.json doesn't work!
   },
+  preview: {
+    port: 3004,
+    strictPort: true,
+    headers: {
+      'Access-Control-Allow-Credentials': 'true',
+    },
+  },
   // base: 'http://localhost:3004',
   resolve: {
     alias: {
