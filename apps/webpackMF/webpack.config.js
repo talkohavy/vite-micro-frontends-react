@@ -8,9 +8,9 @@ module.exports = (env, argv) => {
   return {
     entry: './src/main.tsx',
     mode: isDevelopment ? 'development' : 'production',
-    devtool: isDevelopment ? 'eval-source-map' : 'source-map',
+    devtool: 'source-map',
     output: {
-      uniqueName: '@mf/webpack',
+      uniqueName: 'mf_webpack',
       path: path.resolve(__dirname, 'dist'),
       filename: '[name].[contenthash].js',
       chunkFilename: '[name].[contenthash].js',
@@ -136,21 +136,7 @@ module.exports = (env, argv) => {
         'Access-Control-Allow-Origin': '*',
       },
     },
-    optimization: {
-      runtimeChunk: 'single',
-      moduleIds: 'deterministic',
-      splitChunks: {
-        chunks: 'async',
-        cacheGroups: {
-          vendor: {
-            test: /[\\/]node_modules[\\/]/,
-            name: 'vendors',
-            priority: -10,
-            reuseExistingChunk: true,
-          },
-        },
-      },
-    },
+    optimization: { minimize: false },
     performance: {
       hints: false,
     },
