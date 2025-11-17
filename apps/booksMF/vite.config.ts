@@ -30,6 +30,7 @@ export default defineConfig({
         './Button': './src/exposes/Button',
       },
       shared: ['react', 'react-dom', 'react-refresh'],
+      // getPublicPath: `function() {return "http:localhost:3001/"}`,
     }),
     cssInjectedByJsPlugin({
       jsAssetsFilterFunction: (outputChunk) => {
@@ -37,6 +38,10 @@ export default defineConfig({
       },
     }),
   ] as PluginOption[],
+  /**
+   * This here (the `base`) is important for loading the mf-manifest.json file. When the default value is set (i.e. '/'), the mf-manifest.json tries to load chunks from the same origin (i.e. the host's origin).
+   */
+  // base: 'http://localhost:3001',
   server: {
     port: 3001,
     strictPort: true,
