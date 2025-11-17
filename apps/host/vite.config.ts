@@ -27,7 +27,7 @@ export default defineConfig({
         // Note about the key for the object (i.e. '@mf-books'), it can be whatever you want. with this you'll do the import. i.e. '@mf-books/SomeComponent'
         '@mf/books': {
           name: '@mf/books', // <--- this needs to match the EXACT name of the remote MF.
-          entry: 'http://localhost:3001/remoteEntry.js', // <--- try switching between mf-manifest.json and remoteEntry.js. Both should work when the remote vite.config set the origin correctly. When origin isn't set, only remoteEntry.js will work. Only with mf-manifest.json the dev-tool extension will work.
+          entry: 'http://localhost:3001/mf-manifest.json', // <--- try switching between mf-manifest.json and remoteEntry.js. Both should work when the remote vite.config set the origin correctly. When origin isn't set, only remoteEntry.js will work. Only with mf-manifest.json the dev-tool extension will work.
           type: 'module', // <--- IMPORTANT!!! without this you'll get an error. Your remote vite apps are bundled as esm.
         },
         '@mf/fruits': {
@@ -37,7 +37,7 @@ export default defineConfig({
         },
       },
       shared: ['react', 'react-dom', 'react-refresh'],
-      runtimePlugins: ['./src/plugins/fetchManifestWithCredentialsPlugin'], // './src/plugins/runtimeDebugPlugin' | './src/plugins/loadEntryPlugin' | './src/plugins/loadCustomComponentPlugin'
+      runtimePlugins: ['./src/plugins/dynamicallyAddBaseUrlPlugin', './src/plugins/fetchManifestWithCredentialsPlugin'], // './src/plugins/runtimeDebugPlugin' | './src/plugins/loadEntryPlugin' | './src/plugins/loadCustomComponentPlugin'
     }),
   ] as PluginOption[],
   server: {
