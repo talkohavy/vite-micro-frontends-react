@@ -40,6 +40,7 @@ export default defineConfig({
       runtimePlugins: ['./src/plugins/dynamicallyAddBaseUrlPlugin'], // './src/plugins/runtimeDebugPlugin' | './src/plugins/loadEntryPlugin' | './src/plugins/loadCustomComponentPlugin'
     }),
   ] as PluginOption[],
+  envDir: __dirname,
   server: {
     port: 3000,
     // open: true,
