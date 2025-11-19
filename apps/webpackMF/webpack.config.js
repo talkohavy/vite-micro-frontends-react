@@ -8,7 +8,28 @@ module.exports = (env, argv) => {
   return {
     entry: './src/main.tsx',
     mode: isDevelopment ? 'development' : 'production',
-    devtool: 'source-map',
+    plugins: [
+      new ModuleFederationPlugin({
+        name: 'mf_webpack',
+        filename: 'remoteEntry.js',
+        manifest: true,
+        exposes: {
+          './App': './src/exposes/ExposedWebpackMF',
+        },
+        shared: {
+          react: {
+            singleton: true,
+          },
+          'react-dom': {
+            singleton: true,
+          },
+        },
+      }),
+      new HtmlWebpackPlugin({
+        template: './index.html',
+        inject: 'body',
+      }),
+    ],
     output: {
       uniqueName: 'mf_webpack',
       path: path.resolve(__dirname, 'dist'),
@@ -102,28 +123,7 @@ module.exports = (env, argv) => {
         },
       ],
     },
-    plugins: [
-      new ModuleFederationPlugin({
-        name: 'mf_webpack',
-        filename: 'remoteEntry.js',
-        manifest: true,
-        exposes: {
-          './App': './src/exposes/ExposedWebpackMF',
-        },
-        shared: {
-          react: {
-            singleton: true,
-          },
-          'react-dom': {
-            singleton: true,
-          },
-        },
-      }),
-      new HtmlWebpackPlugin({
-        template: './index.html',
-        inject: 'body',
-      }),
-    ],
+    devtool: 'source-map',
     devServer: {
       port: 3003,
       hot: true,
