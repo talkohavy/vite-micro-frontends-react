@@ -11,10 +11,12 @@ export default function dynamicallyAddBaseUrlPlugin(): ModuleFederationRuntimePl
     async generatePreloadAssets(args) {
       const { remoteInfo, remote } = args;
 
-      console.log('addBaseUrlEarlyPlugin - generatePreloadAssets called:', {
-        remoteName: remote.name,
-        remoteInfo,
-      });
+      if (localStorage.getItem('module-federation-debug') === 'true') {
+        console.log('addBaseUrlEarlyPlugin - generatePreloadAssets called:', {
+          remoteName: remote.name,
+          remoteInfo,
+        });
+      }
 
       const baseUrl = extractOriginFromVersion(remoteInfo.version!);
       remoteInfo.entry = attachBaseUrlToRemoteEntryPath({ baseUrl, remoteEntryPath: remoteInfo.entry });
