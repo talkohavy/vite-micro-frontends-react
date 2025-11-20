@@ -10,11 +10,11 @@ module.exports = (env, argv) => {
     mode: isDevelopment ? 'development' : 'production',
     plugins: [
       new ModuleFederationPlugin({
-        name: 'mf_webpack',
+        name: 'aiChatBot',
         filename: 'remoteEntry.js',
         manifest: true,
         exposes: {
-          './App': './src/exposes/ExposedWebpackMF',
+          './AIChatBotAppMFModal': './src/exposes/ExposedWebpackMF',
         },
         shared: {
           react: {
@@ -125,7 +125,7 @@ module.exports = (env, argv) => {
     },
     devtool: 'source-map',
     devServer: {
-      port: 3003,
+      port: 5555,
       hot: true,
       historyApiFallback: true,
       open: false,
