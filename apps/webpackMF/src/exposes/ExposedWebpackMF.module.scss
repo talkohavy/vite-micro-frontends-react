@@ -30,7 +30,9 @@
   border: 2px solid #8dd6f9;
   border-radius: 8px;
   background: rgba(141, 214, 249, 0.05);
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
 
   &:hover {
     transform: translateY(-4px);
@@ -69,4 +71,3 @@
     color: #8dd6f9;
   }
 }
-
