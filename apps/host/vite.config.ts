@@ -13,6 +13,7 @@ const remoteNameShort = 'host';
 const remoteName = `@mf/${remoteNameShort}`;
 
 export default defineConfig({
+  root: `${process.cwd()}/src`, // <--- defaults to process.cwd(). where the index.html is located.
   plugins: [
     react(),
     svgr({
@@ -57,7 +58,7 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: './dist', // <--- this is relative to the `root` option.
+    outDir: '../dist', // <--- this is relative to the `root` option.
     modulePreload: false,
     target: 'esnext', // <--- or 'chrome89' , just as long as you have top-level-await in the runtime environment it's fine.
     minify: false,
