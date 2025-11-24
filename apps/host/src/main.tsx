@@ -6,11 +6,12 @@ import App from './App';
 import GlobalErrorBoundaryDevelopment from './components/ErrorBoundaries/GlobalErrorBoundaryDevelopment';
 import ReactErrorOverlay from './components/ReactErrorOverlay';
 import SuspenseUntilReady from './components/SuspenseUntilReady';
+import { registerAllRemotes } from './module-federation/registerAllRemotes';
 import DarkThemeProvider from './providers/DarkThemeProvider';
-import { createStore, State } from './store';
 import './index.css';
 import './common/styles/lightTheme.css';
 import './common/styles/darkTheme.css';
+import { createStore, State } from './store';
 
 // const isLogged = !!localStorage.getItem('isLogged');
 const isLogged = true;
@@ -24,6 +25,7 @@ function Client() {
     <React.StrictMode>
       <SuspenseUntilReady
         asyncFn={async () => {
+          registerAllRemotes();
           console.log('Application is up and running!');
         }}
       >
