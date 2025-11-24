@@ -38,7 +38,7 @@ export default defineConfig({
         },
       },
       shared: ['react', 'react-dom'],
-      runtimePlugins: ['./src/plugins/dynamicallyAddBaseUrlPlugin'], // './src/plugins/runtimeDebugPlugin' | './src/plugins/loadEntryPlugin' | './src/plugins/loadCustomComponentPlugin'
+      runtimePlugins: ['./src/module-federation/plugins/dynamicallyAddBaseUrlPlugin'], // './src/plugins/runtimeDebugPlugin' | './src/plugins/loadEntryPlugin' | './src/plugins/loadCustomComponentPlugin'
     }),
   ] as PluginOption[],
   envDir: __dirname,

@@ -8,6 +8,9 @@ export default function dynamicallyAddBaseUrlPlugin(): ModuleFederationRuntimePl
   return {
     name: 'dynamically-add-base-url-plugin',
 
+    async beforeRequest(args) {
+      return args;
+    },
     async generatePreloadAssets(args) {
       const { remoteInfo, remote } = args;
 

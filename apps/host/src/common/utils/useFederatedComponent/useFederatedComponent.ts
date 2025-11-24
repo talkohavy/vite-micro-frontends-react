@@ -1,11 +1,4 @@
-import { registerRemotes } from '@module-federation/enhanced/runtime';
-import { RemoteBundleTypes } from './logic/constants';
 import useLoadedComponent from './logic/hooks/useLoadedComponent';
-
-registerRemotes([
-  { name: '@mf/dragons', entry: 'http://localhost:3002/mf-manifest.json', type: RemoteBundleTypes.Module },
-  { name: 'mf_webpack', entry: 'http://localhost:3003/mf-manifest.json', type: RemoteBundleTypes.Commonjs },
-]);
 
 type UseFederatedComponentProps = {
   remoteName: string;
