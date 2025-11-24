@@ -7,8 +7,8 @@ export default defineConfig({
     server: {
         port: 3005,
         open: false,
-        base: '/', // <--- defaults to '/'
-        htmlFallback: 'index', // <--- defaults to 'index'. If a request meets the following conditions but no corresponding static asset exists, server.htmlFallback triggers and falls back to index.html by default:
+        // base: '/', // <--- defaults to '/'
+        // htmlFallback: 'index', // <--- defaults to 'index'. If a request meets the following conditions but no corresponding static asset exists, server.htmlFallback triggers and falls back to index.html by default:
     },
     plugins: [
         pluginReact(),
