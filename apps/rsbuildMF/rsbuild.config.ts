@@ -22,21 +22,13 @@ export default defineConfig({
             shared: {
                 react: {
                     singleton: true,
-                    eager: true, // <--- without this, there's an error
+                    eager: true, // <--- without this, there would be an error
                 },
                 'react-dom': {
                     singleton: true,
-                    eager: true, // <--- without this, there's an error
+                    eager: true, // <--- without this, there would be an error
                 },
             },
-            // shared: {
-            //     react: {
-            //         singleton: true,
-            //     },
-            //     'react-dom': {
-            //         singleton: true,
-            //     },
-            // },
         }),
     ],
     source: {
