@@ -36,6 +36,11 @@ export default defineConfig({
           entry: 'http://localhost:3004/mf-manifest.json',
           type: 'module', // <--- IMPORTANT!!! without this you'll get an error. Your remote vite apps are bundled as esm.
         },
+        mf_rsbuild: {
+          name: 'mf_rsbuild', // <--- this needs to match the EXACT name of the remote MF.
+          entry: 'http://localhost:3005/remoteEntry.js',
+          // type: 'module', // <--- IMPORTANT!!! without this you'll get an error. Your remote vite apps are bundled as esm.
+        },
       },
       shared: ['react', 'react-dom'],
       runtimePlugins: ['./src/module-federation/plugins/dynamicallyAddBaseUrlPlugin'], // './src/plugins/runtimeDebugPlugin' | './src/plugins/loadEntryPlugin' | './src/plugins/loadCustomComponentPlugin'
