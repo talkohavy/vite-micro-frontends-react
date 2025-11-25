@@ -22,6 +22,14 @@ const terminalsArr = [
   },
   {
     config: {
+      name: "rsbuildMF",
+      command: "cd apps/rsbuildMF && npm run dev",
+      color: "red",
+      autoFocus: true,
+    },
+  },
+  {
+    config: {
       name: "WebpackMF",
       command: "cd apps/webpackMF && npm run dev",
       color: "red",
@@ -31,7 +39,7 @@ const terminalsArr = [
   {
     config: {
       name: "Host",
-      command: "cd apps/host && npm run dev",
+      command: "cd apps/viteHost && npm run dev",
       color: "green",
       autoFocus: true,
     },

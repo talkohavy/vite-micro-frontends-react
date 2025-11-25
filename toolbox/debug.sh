@@ -14,7 +14,7 @@ tell application "iTerm"
     
     # Run host in first pane
     tell current session of current window
-        write text "cd '$PROJECT_DIR/apps/host' && pnpm dev"
+        write text "cd '$PROJECT_DIR/apps/viteHost' && pnpm dev"
     end tell
     
     # Split vertically for booksMF
@@ -39,6 +39,14 @@ tell application "iTerm"
     end tell
     tell fourth session of current tab of current window
         write text "cd '$PROJECT_DIR/apps/dragonsMF' && pnpm dev"
+    end tell
+
+    # Split vertically for rsbuildMF
+    tell third session of current tab of current window
+        split vertically with default profile
+    end tell
+    tell fourth session of current tab of current window
+        write text "cd '$PROJECT_DIR/apps/rsbuildMF' && pnpm dev"
     end tell
     
     # Split vertically for webpackMF
