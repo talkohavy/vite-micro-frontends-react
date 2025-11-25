@@ -3,12 +3,12 @@ import MicroFrontendErrorBoundary from '@src/components/ErrorBoundaries/MicroFro
 import { useFederatedComponent } from '../../common/utils/useFederatedComponent';
 import styles from './MultipleMFsPage.module.scss';
 
-const BooksMF = lazy(() => import('@mf/books/App'));
-const FruitsMF = lazy(() => import('@mf/fruits/App'));
+const BooksMF = lazy(() => import('mf_books/App'));
+const FruitsMF = lazy(() => import('mf_fruits/App'));
 
 export default function MultipleMFs() {
   const { Component: DragonsMF } = useFederatedComponent({
-    remoteName: '@mf/dragons',
+    remoteName: 'mf_dragons',
     moduleName: 'App',
   });
 

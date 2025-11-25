@@ -10,7 +10,7 @@ const __dirname = path.dirname(__filename);
 
 const remoteEntryFileName = 'remoteEntry.js';
 const remoteNameShort = 'host';
-const remoteName = `@mf/${remoteNameShort}`;
+const remoteName = `mf_${remoteNameShort}`;
 
 export default defineConfig({
   root: `${process.cwd()}/src`, // <--- defaults to process.cwd(). where the index.html is located.
@@ -26,13 +26,13 @@ export default defineConfig({
       manifest: true,
       remotes: {
         // Note about the key for the object (i.e. '@mf-books'), it can be whatever you want. with this you'll do the import. i.e. '@mf-books/SomeComponent'
-        '@mf/books': {
-          name: '@mf/books', // <--- this needs to match the EXACT name of the remote MF.
+        mf_books: {
+          name: 'mf_books', // <--- this needs to match the EXACT name of the remote MF.
           entry: 'http://localhost:3001/mf-manifest.json', // <--- try switching between mf-manifest.json and remoteEntry.js. Both should work when the remote vite.config set the origin correctly. When origin isn't set, only remoteEntry.js will work. Only with mf-manifest.json the dev-tool extension will work.
           type: 'module', // <--- IMPORTANT!!! without this you'll get an error. Your remote vite apps are bundled as esm.
         },
-        '@mf/fruits': {
-          name: '@mf/fruits', // <--- this needs to match the EXACT name of the remote MF.
+        mf_fruits: {
+          name: 'mf_fruits', // <--- this needs to match the EXACT name of the remote MF.
           entry: 'http://localhost:3004/mf-manifest.json',
           type: 'module', // <--- IMPORTANT!!! without this you'll get an error. Your remote vite apps are bundled as esm.
         },

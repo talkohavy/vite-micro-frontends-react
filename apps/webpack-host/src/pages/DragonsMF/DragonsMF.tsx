@@ -4,7 +4,7 @@ import MicroFrontendErrorBoundary from '@src/components/ErrorBoundaries/MicroFro
 
 export default function DragonsMF() {
   const { Component: Dragons } = useFederatedComponent({
-    remoteName: '@mf/dragons',
+    remoteName: 'mf_dragons',
     moduleName: 'App',
   });
 

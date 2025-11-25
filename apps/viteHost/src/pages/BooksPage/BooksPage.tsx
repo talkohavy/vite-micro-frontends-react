@@ -1,7 +1,7 @@
 import { lazy, Suspense } from 'react';
 import MicroFrontendErrorBoundary from '@src/components/ErrorBoundaries/MicroFrontendErrorBoundary';
 
-const BooksMF = lazy(() => import('@mf/books/App'));
+const BooksMF = lazy(() => import('mf_books/App'));
 
 export default function BooksPage() {
   return (

@@ -33,7 +33,7 @@ The app is configured to consume remote micro-frontends:
 
 ```javascript
 remotes: {
-  '@mf/books': '@mf/books@http://localhost:3001/remoteEntry.js',
+  'mf_books': 'mf_books@http://localhost:3001/remoteEntry.js',
 }
 ```
 
@@ -49,7 +49,7 @@ import { RemoteBundleTypes } from '@src/common/utils/useFederatedComponent/logic
 
 function MyPage() {
   const { Component } = useFederatedComponent({
-    remoteName: '@mf/books',
+    remoteName: 'mf_books',
     moduleName: 'ExposedBooksMF',
   });
 

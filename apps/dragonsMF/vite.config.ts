@@ -9,7 +9,7 @@ const __dirname = path.dirname(__filename);
 
 const remoteEntryFileName = 'remoteEntry.js';
 const remoteNameShort = 'dragons';
-const remoteName = `@mf/${remoteNameShort}`;
+const remoteName = `mf_${remoteNameShort}`;
 
 export default defineConfig({
   plugins: [

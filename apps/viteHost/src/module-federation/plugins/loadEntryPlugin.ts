@@ -4,7 +4,7 @@ export default function loadEntryPlugin(): ModuleFederationRuntimePlugin {
   return {
     name: 'load-entry-plugin',
     loadEntry({ remoteInfo }) {
-      if (remoteInfo.name === '@mf/books') {
+      if (remoteInfo.name === 'mf_books') {
         return {
           init(_shareScope: any, _initScope: any, _remoteEntryInitOPtions: any) {},
           async get(path: any) {

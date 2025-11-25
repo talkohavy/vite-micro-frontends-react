@@ -1,5 +1,5 @@
 {
-  "name": "@mf/webpackMF",
+  "name": "mf_webpack",
   "private": true,
   "version": "0.0.0",
   "scripts": {

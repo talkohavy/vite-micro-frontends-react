@@ -1,5 +1,5 @@
 {
-    "name": "rsbuild-mf",
+    "name": "mf_rsbuild",
     "version": "1.0.0",
     "private": true,
     "scripts": {

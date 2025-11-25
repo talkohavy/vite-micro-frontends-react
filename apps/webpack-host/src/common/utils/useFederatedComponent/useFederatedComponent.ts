@@ -3,8 +3,8 @@ import { RemoteBundleTypes } from './logic/constants';
 import useLoadedComponent from './logic/hooks/useLoadedComponent';
 
 registerRemotes([
-  // { name: '@mf/books', entry: 'http://localhost:3001/remoteEntry.js', type: RemoteBundleTypes.Module }, // <--- already defined at build
-  { name: '@mf/dragons', entry: 'http://localhost:3002/remoteEntry.js', type: RemoteBundleTypes.Module },
+  // { name: 'mf_books', entry: 'http://localhost:3001/remoteEntry.js', type: RemoteBundleTypes.Module }, // <--- already defined at build
+  { name: 'mf_dragons', entry: 'http://localhost:3002/remoteEntry.js', type: RemoteBundleTypes.Module },
   { name: 'mf_webpack', entry: 'http://localhost:3003/remoteEntry.js', type: RemoteBundleTypes.Commonjs },
 ]);
 
