@@ -1,4 +1,5 @@
 import { federation } from '@module-federation/vite';
+import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 import url from 'url';
@@ -16,6 +17,7 @@ export default defineConfig({
   plugins: [
     // For a webpack host, you'll need to comment out the line below:
     react({ reactRefreshHost: 'http://localhost:3000' }),
+    tailwindcss(),
     svgr({
       include: '**/*.svg',
       svgrOptions: { exportType: 'named' },
