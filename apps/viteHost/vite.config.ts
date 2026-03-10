@@ -1,4 +1,5 @@
 import { federation } from '@module-federation/vite';
+import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 import url from 'url';
@@ -16,6 +17,7 @@ export default defineConfig({
   root: `${process.cwd()}/src`, // <--- defaults to process.cwd(). where the index.html is located.
   plugins: [
     react(),
+    tailwindcss(),
     svgr({
       include: '**/*.svg',
       svgrOptions: { exportType: 'named' },
