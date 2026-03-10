@@ -22,6 +22,14 @@ const terminalsArr = [
   },
   {
     config: {
+      name: "FruitsMF",
+      command: "cd apps/fruitsMF && npm run dev",
+      color: "blue",
+      autoFocus: true,
+    },
+  },
+  {
+    config: {
       name: "rsbuildMF",
       command: "cd apps/rsbuildMF && npm run dev",
       color: "red",
@@ -46,4 +54,4 @@ const terminalsArr = [
   },
 ];
 
-terminalsArr.forEach((props) => openTerminal(props));
+terminalsArr.forEach(openTerminal);
