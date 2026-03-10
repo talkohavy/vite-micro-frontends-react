@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
-import { BASE_URL } from '../../common/constants';
+import { BOOKS_BASE_URL } from '../../common/constants';
 import RadioTabs from '../../components/controls/RadioTabs';
 import { PAGE_2_BASE } from './logic/constants';
 import { getInitialTabValue } from './logic/utils/getInitialTabValue';
@@ -41,7 +41,7 @@ export default function Page2() {
   function handleTabChange(tabValue: string) {
     setCurrentTabValue(tabValue);
 
-    const targetPath = `${BASE_URL}/${PAGE_2_BASE}/${tabValue}`;
+    const targetPath = `${BOOKS_BASE_URL}/${PAGE_2_BASE}${tabValue ? `/${tabValue}` : ''}`;
     navigate(targetPath);
   }
 
