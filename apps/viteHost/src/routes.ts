@@ -26,7 +26,7 @@ export const routes: Array<Route> = [
   {
     to: `${BASE_URL}/books/*`,
     text: 'Books',
-    activeNames: [`${BASE_URL}/books`],
+    activeNames: [`${BASE_URL}/books`, `${BASE_URL}/books/*`],
     Component: BooksPage,
   },
   {
