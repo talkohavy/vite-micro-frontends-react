@@ -24,7 +24,7 @@ export const routes: Array<Route> = [
     Component: Page2,
     children: [
       {
-        to: '*/*',
+        to: '*',
         text: 'Tab 1',
         activeNames: [],
         Component: Tab1,
