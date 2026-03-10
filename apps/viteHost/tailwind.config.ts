@@ -1,7 +1,7 @@
 import type { Config } from 'tailwindcss';
 
 const tailwindConfig: Config = {
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  content: ['./src/index.html', './src/**/*.{js,ts,jsx,tsx}'],
   // safelist: [{ pattern: /^(bg-|border-|text-)/, variants: ['hover', 'active'] }, 'bg-red-200'],
   theme: {
     screens: { sm: '480px', md: '768px', lg: '976px', xl: '1440px' },
