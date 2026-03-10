@@ -20,13 +20,14 @@ export const routes: Array<Route> = [
   {
     to: `${BASE_URL}/*`,
     text: 'Home',
-    activeNames: [`${BASE_URL}/home`, `${BASE_URL}/home/*`, `${BASE_URL}/`, `${BASE_URL}/*`],
+    activeNames: [BASE_URL, `${BASE_URL}/*`, `${BASE_URL}/home`, `${BASE_URL}/home/*`],
+    isExactMatch: true,
     Component: HomePage,
   },
   {
     to: `${BASE_URL}/books/*`,
     text: 'Books',
-    activeNames: [`${BASE_URL}/books`, `${BASE_URL}/books/*`],
+    activeNames: [`${BASE_URL}/books`],
     Component: BooksPage,
   },
   {

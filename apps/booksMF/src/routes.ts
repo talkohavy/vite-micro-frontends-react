@@ -14,19 +14,14 @@ export const routes: Array<Route> = [
   {
     to: `${BOOKS_BASE_URL}/*`,
     text: 'Page 1',
-    activeNames: [`${BOOKS_BASE_URL}/*`, `${BOOKS_BASE_URL}`],
+    activeNames: [`${BOOKS_BASE_URL}/*`, BOOKS_BASE_URL],
+    isExactMatch: true,
     Component: Page1,
   },
   {
     to: `${BOOKS_BASE_URL}/page-2/*`,
     text: 'Page 2',
-    activeNames: [
-      `${BOOKS_BASE_URL}/page-2`,
-      `${BOOKS_BASE_URL}/page-2/*`,
-      `${BOOKS_BASE_URL}/page-2/tab-1`,
-      `${BOOKS_BASE_URL}/page-2/tab-2`,
-      `${BOOKS_BASE_URL}/page-2/tab-3`,
-    ],
+    activeNames: [`${BOOKS_BASE_URL}/page-2`],
     Component: Page2,
     children: [
       {

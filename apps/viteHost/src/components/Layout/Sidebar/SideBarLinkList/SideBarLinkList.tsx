@@ -11,11 +11,17 @@ export default function SideBarLinkList() {
     () =>
       routesRaw
         .filter((route) => !route.hideFromSidebar)
-        .map(({ to, text, activeNames }) => ({
-          to,
-          text,
-          isActive: activeNames.some((name) => name === pathname),
-        })),
+        .map(({ to, text, activeNames, isExactMatch }) => {
+          const isActive = activeNames.some((name) => {
+            if (isExactMatch) return name === pathname;
+
+            const isParentMatch = pathname.startsWith(name);
+
+            return isParentMatch;
+          });
+
+          return { to, text, isActive: isActive };
+        }),
     [pathname],
   );
 
