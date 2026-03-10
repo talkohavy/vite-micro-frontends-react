@@ -6,7 +6,7 @@ export function useFixPathnameWithAsterisk() {
 
   useEffect(() => {
     if (pathname.endsWith('/*')) {
-      history.pushState(null, '', pathname.slice(0, -2));
+      history.replaceState(null, '', pathname.slice(0, -2));
     }
   }, [pathname]);
 }
