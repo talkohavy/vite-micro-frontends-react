@@ -1,0 +1,28 @@
+import clsx from 'clsx';
+import { ReactComponent as ReactLogo } from '../../assets/react.svg';
+import Button from '../../components/Button';
+import styles from './Page1.module.css';
+
+export default function Page1() {
+  return (
+    <div className='flex flex-col items-center justify-center size-full'>
+      <div className={styles.icons}>
+        <img src='/vite.svg' className='logo' alt='Vite logo' />
+
+        <ReactLogo className={clsx(styles.logo, styles.react)} />
+      </div>
+
+      <h1 className={styles.title}>One Book a day!</h1>
+
+      <div className={styles.card}>
+        <Button />
+
+        <p>
+          Edit <code>src/App.jsx</code> and save to test HMR
+        </p>
+      </div>
+
+      <p className='read-the-docs'>Click on the Vite and React logos to learn more</p>
+    </div>
+  );
+}

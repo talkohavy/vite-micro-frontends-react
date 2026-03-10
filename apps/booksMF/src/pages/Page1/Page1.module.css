@@ -1,9 +1,11 @@
-.app {
+.page1 {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
+  height: 100%;
+  border: #61dafbaa solid 1px;
 }
 
 .icons {

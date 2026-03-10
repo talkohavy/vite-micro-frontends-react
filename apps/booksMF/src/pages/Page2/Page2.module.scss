@@ -1,0 +1,20 @@
+.page2 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 4px;
+}
+
+.radioTabs {
+  display: flex;
+  flex-shrink: 0;
+  overflow: auto;
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  padding: 12px;
+}

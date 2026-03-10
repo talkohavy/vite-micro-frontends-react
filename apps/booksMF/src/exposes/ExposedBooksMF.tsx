@@ -1,9 +1,8 @@
 import App from '../components/App';
+import WithExposed from './WithExposed';
 
-type ExposedBooksMFProps = {
-  className?: string;
-};
-
-export default function ExposedBooksMF(props: ExposedBooksMFProps) {
-  return <App {...props} />;
+function BooksMFToExpose() {
+  return <App />;
 }
+
+export default WithExposed(BooksMFToExpose);
