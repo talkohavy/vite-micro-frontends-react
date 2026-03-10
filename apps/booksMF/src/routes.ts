@@ -8,6 +8,7 @@ const Page2 = lazy(() => import('./pages/Page2'));
 // Page 2 tabs:
 const Tab1 = lazy(() => import('./pages/Page2/tabs/Tab1'));
 const Tab2 = lazy(() => import('./pages/Page2/tabs/Tab2'));
+const Tab3 = lazy(() => import('./pages/Page2/tabs/Tab3'));
 
 export const routes: Array<Route> = [
   {
@@ -33,6 +34,12 @@ export const routes: Array<Route> = [
         text: 'Tab 2',
         activeNames: [],
         Component: Tab2,
+      },
+      {
+        to: 'tab-3',
+        text: 'Tab 3',
+        activeNames: [],
+        Component: Tab3,
       },
     ],
   },

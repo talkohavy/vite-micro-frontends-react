@@ -9,6 +9,7 @@ import styles from './Page2.module.scss';
 const Tabs = {
   Tab1: '',
   Tab2: 'tab-2',
+  Tab3: 'tab-3',
 } as const;
 
 const tabOptions = [
@@ -19,6 +20,10 @@ const tabOptions = [
   {
     value: Tabs.Tab2,
     label: 'Tab 2',
+  },
+  {
+    value: Tabs.Tab3,
+    label: 'Tab 3',
   },
 ];
 
