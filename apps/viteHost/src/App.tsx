@@ -1,11 +1,14 @@
 import { Suspense, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Layout from './components/Layout';
+import { useFixPathnameWithAsterisk } from './hooks/useFixPathnameWithAsterisk';
 import { routes } from './routes';
 
 const PageNotFound = lazy(() => import('./pages/PageNotFound'));
 
 export default function App() {
+  useFixPathnameWithAsterisk();
+
   return (
     <Layout>
       <Suspense>
