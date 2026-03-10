@@ -12,33 +12,33 @@ const Tab3 = lazy(() => import('./pages/Page2/tabs/Tab3'));
 
 export const routes: Array<Route> = [
   {
-    to: `${BOOKS_BASE_URL}/`,
+    to: `${BOOKS_BASE_URL}/*`,
     text: 'Page 1',
-    activeNames: [`${BOOKS_BASE_URL}/`, `${BOOKS_BASE_URL}`],
+    activeNames: [`${BOOKS_BASE_URL}/*`, `${BOOKS_BASE_URL}`],
     Component: Page1,
   },
   {
-    to: `${BOOKS_BASE_URL}/page-2`,
+    to: `${BOOKS_BASE_URL}/page-2/*`,
     text: 'Page 2',
-    activeNames: [`${BOOKS_BASE_URL}/page-2`],
+    activeNames: [`${BOOKS_BASE_URL}/page-2`, `${BOOKS_BASE_URL}/page-2/*`],
     Component: Page2,
     children: [
       {
-        to: '',
+        to: '*/*',
         text: 'Tab 1',
-        activeNames: [`${BOOKS_BASE_URL}/page-2`],
+        activeNames: [],
         Component: Tab1,
       },
       {
         to: 'tab-2',
         text: 'Tab 2',
-        activeNames: [`${BOOKS_BASE_URL}/page-2/tab-2`],
+        activeNames: [],
         Component: Tab2,
       },
       {
         to: 'tab-3',
         text: 'Tab 3',
-        activeNames: [`${BOOKS_BASE_URL}/page-2/tab-3`],
+        activeNames: [],
         Component: Tab3,
       },
     ],

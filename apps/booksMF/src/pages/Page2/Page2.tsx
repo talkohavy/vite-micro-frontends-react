@@ -7,7 +7,7 @@ import { getInitialTabValue } from './logic/utils/getInitialTabValue';
 import styles from './Page2.module.scss';
 
 const Tabs = {
-  Tab1: '',
+  Tab1: '/*',
   Tab2: 'tab-2',
   Tab3: 'tab-3',
 } as const;

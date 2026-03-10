@@ -18,9 +18,9 @@ export const routes: Array<Route> = [
     Component: RedirectToHome,
   } as Route,
   {
-    to: `${BASE_URL}/`,
+    to: `${BASE_URL}/*`,
     text: 'Home',
-    activeNames: [`${BASE_URL}/home`, `${BASE_URL}/`],
+    activeNames: [`${BASE_URL}/home`, `${BASE_URL}/home/*`, `${BASE_URL}/`, `${BASE_URL}/*`],
     Component: HomePage,
   },
   {
@@ -30,31 +30,31 @@ export const routes: Array<Route> = [
     Component: BooksPage,
   },
   {
-    to: `${BASE_URL}/fruits`,
+    to: `${BASE_URL}/fruits/*`,
     text: 'Fruits',
     activeNames: [`${BASE_URL}/fruits`],
     Component: FruitsPage,
   },
   {
-    to: `${BASE_URL}/dragons`,
+    to: `${BASE_URL}/dragons/*`,
     text: 'Dragons',
     activeNames: [`${BASE_URL}/dragons`],
     Component: DragonsPage,
   },
   {
-    to: `${BASE_URL}/rsbuild`,
+    to: `${BASE_URL}/rsbuild/*`,
     text: 'Rsbuild',
     activeNames: [`${BASE_URL}/rsbuild`],
     Component: RsBuildPage,
   },
   {
-    to: `${BASE_URL}/webpack`,
+    to: `${BASE_URL}/webpack/*`,
     text: 'Webpack MF',
     activeNames: [`${BASE_URL}/webpack`],
     Component: WebpackMF,
   },
   {
-    to: `${BASE_URL}/multiple`,
+    to: `${BASE_URL}/multiple/*`,
     text: 'Multiple MF',
     activeNames: [`${BASE_URL}/multiple`],
     Component: MultipleMFsPage,
