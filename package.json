@@ -4,7 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "./toolbox/debug.sh"
+    "dev": "./toolbox/debug.sh",
+    "dev-vs": "node ./toolbox/debug.mjs"
   },
   "devDependencies": {
     "open-terminal-programmatically": "^1.0.2"
