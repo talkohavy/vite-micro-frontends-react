@@ -1,3 +1,5 @@
+/// <reference types="vite/client" />
+
 declare module 'mf_*' {
   const content: any;
 
