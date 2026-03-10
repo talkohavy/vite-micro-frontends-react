@@ -20,7 +20,13 @@ export const routes: Array<Route> = [
   {
     to: `${BOOKS_BASE_URL}/page-2/*`,
     text: 'Page 2',
-    activeNames: [`${BOOKS_BASE_URL}/page-2`, `${BOOKS_BASE_URL}/page-2/*`],
+    activeNames: [
+      `${BOOKS_BASE_URL}/page-2`,
+      `${BOOKS_BASE_URL}/page-2/*`,
+      `${BOOKS_BASE_URL}/page-2/tab-1`,
+      `${BOOKS_BASE_URL}/page-2/tab-2`,
+      `${BOOKS_BASE_URL}/page-2/tab-3`,
+    ],
     Component: Page2,
     children: [
       {
